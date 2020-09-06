@@ -1,7 +1,7 @@
 .panel {
     height: 200px;
-    background-image: url("../../../assets/imagenes/cabecera.png");
-    background-position: center;
+    background-image: url("../../../assets/imagenes/cabecera.jpg");
+    /* background-position: center; */
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -13,7 +13,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #3E06B0;
+    color: #fff;
+    font-size: large;
 }
 
 .hero-text a {
@@ -22,12 +23,26 @@
     display: inline-block;
     padding: 10px 25px;
     color: black;
-    background-color: #ddd;
+    /* background-color: #ddd; */
+    background-color: transparent !important;
     text-align: center;
     cursor: pointer;
 }
 
 .hero-text a:hover {
-    background-color: #555;
+    /* background-color: #555; */
+    font-size: 30px;
+}
+
+.navbar {
+    background-color: transparent !important;
+  }
+
+  .navbar a{
+      color: white;
+  }
+
+  .navbar a:hover{
     color: white;
+    font-size: 20px;
 }
