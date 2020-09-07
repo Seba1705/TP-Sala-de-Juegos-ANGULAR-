@@ -11,3 +11,12 @@
     transform: translate(-50%, -50%);
     color: #100000;
 }
+
+p {
+    color: #000;
+    font-size: 20px;
+}
+
+h2 {
+    color: #000;
+}

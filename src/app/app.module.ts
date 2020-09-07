@@ -54,6 +54,7 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 // import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
     FormsModule,
     RuteandoModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     // AgmCoreModule.forRoot({
     //   apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
     // })
