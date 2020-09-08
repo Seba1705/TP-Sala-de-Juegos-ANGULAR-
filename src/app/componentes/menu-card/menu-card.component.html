@@ -1,28 +1,27 @@
-<div class="container">
+<!-- <div class="container">
     <div class="card">
         <img class="img-thumbnail" src="./assets/imagenes/cerebro.jpg" alt="Avatar" style="width:100%">
         <h1>Velocidad y agilidad aritmética </h1>
         <p class="title">Juego de agilidad mental</p>
         <p>UTN FRA </p>
 
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
         <p> <button class="button" (click)="Juego('Agilidad')">Jugar</button></p>
 
     </div>
-
     <div class="card">
         <img class="img-thumbnail" src="./assets/imagenes/ppt.jpg" alt="Avatar" style="width:100%">
         <h1>Piedra Papel o Tijera</h1>
         <p class="title">Juega contra la máquina</p>
         <p>UTN FRA </p>
 
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
         <p> <button class="button" (click)="Juego('PPT')">Jugar</button></p>
     </div>
     <div class="card">
@@ -31,10 +30,64 @@
         <p class="title">Juega de estrategia</p>
         <p>UTN FRA </p>
 
-        <a href="#"><i class="fa fa-dribbble"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
         <p> <button class="button" (click)="Juego('Adivina')">Jugar</button></p>
+    </div>
+</div> -->
+<div class="container">
+    <div class="row">
+        <div class="col p-5">
+            <div class="card-deck">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./assets/imagenes/ppt.png" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h1>Piedra Papel o Tijera</h1><br>
+                        <p class="card-text">Juega contra la máquina</p>
+                        <p class="card-text">UTN FRA </p>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-dribbble"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-twitter"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-linkedin"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-facebook"></i></a></li>
+                        </ul>
+                        <a (click)="Juego('PPT')" class="btn btn-block btn-outline-dark">Jugar</a>
+
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./assets/imagenes/cerebro.jpg" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h1>Velocidad y agilidad aritmética </h1>
+                        <p class="card-text">Juego de agilidad mental</p>
+                        <p class="card-text">UTN FRA </p>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-dribbble"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-twitter"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-linkedin"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-facebook"></i></a></li>
+                        </ul>
+                        <a (click)="Juego('Agilidad')" class="btn btn-block btn-outline-dark">Jugar</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="./assets/imagenes/adivina.jpg" alt="Card image cap">
+                    <div class="card-body text-center">
+                        <h1>Adivina el número secreto</h1><br>
+                        <p class="card-text">Juego de estrategia</p>
+                        <p class="card-text">UTN FRA </p>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-dribbble"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-twitter"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-linkedin"></i></a></li>
+                            <li class="nav-item"><a class="nav-link"><i class="fab fa-facebook"></i></a></li>
+                        </ul>
+                        <a (click)="Juego('Adivina')" class="btn btn-block btn-outline-dark">Jugar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
