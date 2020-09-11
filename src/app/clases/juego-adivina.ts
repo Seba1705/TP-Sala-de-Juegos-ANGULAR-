@@ -1,6 +1,7 @@
-import { Juego } from '../clases/juego'
+import { Juego } from './juego';
 
-export class JuegoAdivina extends  Juego {
+export class JuegoAdivina extends Juego {
+
     numeroSecreto: number = 0;
     numeroIngresado = 0;
 
@@ -11,7 +12,6 @@ export class JuegoAdivina extends  Juego {
     public verificar() {
         if (this.numeroIngresado == this.numeroSecreto) 
             this.gano = true;
-
         if (this.gano) 
             return true;
         else 
