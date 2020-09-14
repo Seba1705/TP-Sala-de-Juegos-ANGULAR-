@@ -1,5 +1,11 @@
 .border-back {
     border: 1px solid #311B92;
-    background-color: #D1C4E9;
+    /* background-color: #D1C4E9; */
+    cursor: pointer;
 }
 
+
+.border-back:hover {
+       background-color: #D1C4E9;
+
+}

@@ -5,6 +5,8 @@ import { NgForm } from '@angular/forms';
 import { Subscription } from "rxjs";
 import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
     selector: 'app-login',
@@ -12,6 +14,21 @@ import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms'
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+    loginForm = new FormGroup({
+        email: new FormControl(''),
+        password: new FormControl(''),
+    })
+
+    constructor(private authSrv: AuthService) { }
+
+    ngOnInit(): void {
+    }
+
+    onLogin() {
+        console.log(this.loginForm.value);
+    }
+
 
     // private subscription: Subscription;
     // usuario = '';
@@ -82,18 +99,5 @@ export class LoginComponent implements OnInit {
     // }
 
 
-    loginForm = new FormGroup({
-        email: new FormControl(''),
-        pass: new FormControl(''),
-    })
-
-    constructor() { }
-
-    ngOnInit(): void {
-    }
-
-    onLogin() {
-        console.log(this.loginForm.value);
-    }
-
+  
 }

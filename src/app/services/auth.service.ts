@@ -12,13 +12,13 @@ export class AuthService {
 
     public user:User;
 
-    constructor(public auth: AngularFireAuth) { 
+    constructor(public afAuth: AngularFireAuth) { 
         
     }
     
     async login(email: string, password: string) {
         try {
-            const result = await this.auth.signInWithEmailAndPassword(email, password);
+            const result = await this.afAuth.signInWithEmailAndPassword(email, password);
             return result;
         }
         catch(err){
@@ -29,7 +29,7 @@ export class AuthService {
 
     async logout() {
         try {
-            await this.auth.signOut(); 
+            await this.afAuth.signOut(); 
         }
         catch(err) {
             console.log(err);
@@ -38,7 +38,7 @@ export class AuthService {
 
     async register(email: string, password: string) {
         try {
-            const result = await this.auth.createUserWithEmailAndPassword(email, password);
+            const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
             return result;
         }
         catch(err) {
@@ -48,7 +48,7 @@ export class AuthService {
 
     getCurrentUser() {
         try {
-            return this.auth.authState.pipe(first()).toPromise();
+            return this.afAuth.authState.pipe(first()).toPromise();
         }
         catch(err) {
             console.log(err);

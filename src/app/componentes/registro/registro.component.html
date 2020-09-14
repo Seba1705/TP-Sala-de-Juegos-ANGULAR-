@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container animated">
     <div class="row mt-5">
         <div class="col">
             <div class="jumbotron">
@@ -42,11 +42,14 @@
     </div>
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-dialog modal-md modal-dialog-centered">
             <div class="modal-content">
                 <div class="card">
                     <div class="card-body">
                         <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+                            <div class="form-group text-center">
+                                <img class="card-img-top w-50" src="./assets/imagenes/login.png" alt="Card image cap">
+                            </div>
                             <div class="form-group">
                                 <label >Correo electrónico</label>
                                 <input class="form-control" placeholder="Correo electrónico" formControlName="email">
@@ -55,11 +58,6 @@
                                 <label >Clave</label>
                                 <input class="form-control" placeholder="Clave" formControlName="password">
                             </div>
-                            <div class="form-group">
-                                <label >Reingrese Clave</label>
-                                <input class="form-control" placeholder="Reingrese Clave" formControlName="repass">
-                            </div>
-
                             <div class="text-center">
                                 <button type="submit" class="btn back w-50">Registrarse</button>
                             </div>
@@ -67,7 +65,7 @@
                     </div>
                     <div class="card-footer pt-5 text-left">
                         <button class="btn btn-outline-dark mr-2" routerLink="/Principal" data-dismiss="modal">Me Arrepentí</button>
-                        <button class="btn btn-outline-dark mr-2" routerLink="/Principal" data-dismiss="modal">Iniciar sesión</button>
+                        <button class="btn btn-outline-dark mr-2" routerLink="/Login" data-dismiss="modal">Iniciar sesión</button>
                     </div>
                 </div>
             </div>
