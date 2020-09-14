@@ -1,0 +1,24 @@
+.back {
+    background-color: #311B92;
+    color: white;
+}
+
+.back:hover {
+    background-color: #651FFF;
+
+}
+
+input {
+    background-color: white;
+}
+
+.btn-outline-dark:hover {
+    background-color: #311B92 !important;
+}
+
+/* a {
+    position: relative;
+    color:  #311B92;
+    text-align: right;
+    right: 0 !important;
+} */

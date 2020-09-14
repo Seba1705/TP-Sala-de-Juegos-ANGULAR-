@@ -3,7 +3,8 @@
         <div class="col">
             <div class="jumbotron">
                 <h1 id="terminos" class="text-center">Terminos y condiciones</h1>
-                <p>El Gobierno de la República Argentina (en adelante el “Gobierno Nacional”) no es responsable por los
+                <p class="mr-5 ml-5">El Gobierno de la República Argentina (en adelante el “Gobierno Nacional”) no es
+                    responsable por los
                     daños y
                     perjuicios que puedan surgir, incluyendo, sin límite, daños, pérdidas o gastos directos, indirectos,
                     que
@@ -16,12 +17,14 @@
                     caso de que el Gobierno Nacional o sus representantes fueran informados sobre la posibilidad de
                     dichos
                     daños, pérdidas o gastos.</p>
-                <p>El Gobierno Nacional no controla ni garantiza la ausencia de virus ni de otros elementos en los
+                <p class="mr-5 ml-5">El Gobierno Nacional no controla ni garantiza la ausencia de virus ni de otros
+                    elementos en los
                     contenidos
                     que puedan producir alteraciones en su sistema informático (software y hardware) o en los documentos
                     electrónicos y ficheros almacenados
                     en su sistema informático.</p>
-                <p>El Gobierno Nacional no puede garantizar que la transmisión de información por parte de los Usuarios
+                <p class="mr-5 ml-5">El Gobierno Nacional no puede garantizar que la transmisión de información por
+                    parte de los Usuarios
                     sea
                     completamente segura. El Usuario asume este riesgo.</p>
             </div>
@@ -31,9 +34,9 @@
             </strong>
 
             <div class="text-center">
-                <button class="btn btn-outline-success w-25 mr-5" data-toggle="modal"
+                <button class="btn btn-outline-dark w-25 mr-5" data-toggle="modal"
                     data-target=".bd-example-modal-lg">Acepto</button>
-                <button class="btn btn-outline-danger w-25" routerLink="/Principal"> No Acepto</button>
+                <button class="btn btn-outline-dark w-25" routerLink="/Principal"> No Acepto</button>
             </div>
         </div>
     </div>
@@ -41,50 +44,54 @@
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-content">
-                    <div class="modal-header text-center">
-                        <h1 class="modal-title" id="exampleModalLongTitle">Registro</h1>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form autocomplete="off" (ngSubmit)="registro(f)" #f="ngForm">
-                            <div class="form-group row ">
-                                <label class="col-2 col-form-label" [class.text-danger]="email.invalid && email.touched">Email</label>
-                                <div class="col-8 ">
-                                    <input class="form-control " type="text" placeholder="Correo electrónico" name="email" [(ngModel)]="usuario.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
-                                    <small class="form-text text-danger" *ngIf="email.invalid && email.touched">Ingresar: admin@gmail.com</small>
-                                </div>
-                            </div>
-                
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" [class.text-danger]="clave.invalid && clave.touched">Clave</label>
-                                <div class="col-8">
-                                    <input class="form-control" type="text" placeholder="Clave" name="clave" required [(ngModel)]="usuario.clave" [class.is-invalid]="clave.invalid && clave.touched" #clave="ngModel" minlength="6">
-                                    <small class="form-text text-danger" *ngIf="clave.invalid && clave.touched">Ingresar: 123456</small>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="">
+                            <div class="form-group">
+                                <label class="" [class.text-danger]="email.invalid && email.touched">Correo
+                                    electrónico</label>
+                                <div class="">
+                                    <input class="form-control" type="text" placeholder="Correo electrónico"
+                                        name="email" [(ngModel)]="usuario.email" required
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel"
+                                        [class.is-invalid]="email.invalid && email.touched">
+                                    <small class="form-text text-danger"
+                                        *ngIf="email.invalid && email.touched">Ingresar:
+                                        admin@admin.com</small>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-2 col-form-label" [class.text-danger]="reclave.invalid && reclave.touched">Reingrese Clave</label>
-                                <div class="col-8">
-                                    <input class="form-control" type="text" placeholder="Reingrese Clave" name="reclave" required [(ngModel)]="usuario.reclave" [class.is-invalid]="reclave.invalid && reclave.touched" #reclave="ngModel" minlength="6">
-                                    <small class="form-text text-danger" *ngIf="reclave.invalid && reclave.touched">Ingresar: 123456</small>
+                            <div class="form-group">
+                                <label class="" [class.text-danger]="clave.invalid && clave.touched">Contraseña</label>
+                                <div class="">
+                                    <input class="form-control" type="text" placeholder="Clave" name="clave" required
+                                        [(ngModel)]="usuario.clave" [class.is-invalid]="clave.invalid && clave.touched"
+                                        #clave="ngModel" minlength="6">
+                                    <small class="form-text text-danger"
+                                        *ngIf="clave.invalid && clave.touched">Ingresar:
+                                        123456</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="" [class.text-danger]="clave.invalid && clave.touched">Reingrese Contraseña</label>
+                                <div class="">
+                                    <input class="form-control" type="text" placeholder=" Reingrese Clave" name="reclave" required
+                                        [(ngModel)]="usuario.reclave" [class.is-invalid]="reclave.invalid && reclave.touched"
+                                        #reclave="ngModel" minlength="6">
+                                    <small class="form-text text-danger"
+                                        *ngIf="reclave.invalid && reclave.touched">Ingresar:
+                                        123456</small>
                                 </div>
                             </div>
 
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Recordar mis datos</label>
-                                <p class="form-text text-center">Creando la cuenta aceptando los <strong>Términos y Condiciones</strong></p>
-                            </div>
-                
-                            <div class="form-group text-center mt-5">
-                                <button type="button" class="btn btn-danger w-25 mr-5" data-dismiss="modal">Me Arrepentí</button>
-                                <button type="submit" class="btn btn-success w-25">Registrarme</button>
+                            <div class="text-center">
+                                <button class="btn back w-50">Registrarse</button>
                             </div>
                         </form>
+                    </div>
+                    <div class="card-footer pt-5 text-center">
+                        <button class="btn btn-outline-dark mr-2" routerLink="/Principal" data-dismiss="modal">Me Arrepentí</button>
+                        <button class="btn btn-outline-dark " routerLink="/Registro">Registrarse</button>
                     </div>
                 </div>
             </div>

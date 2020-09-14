@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "sala-de-juegos-58a41": {
+      "hosting": {
+        "sala-de-juegos": [
+          "sala-de-juegos-58a41"
+        ]
+      }
+    }
+  }
+}
