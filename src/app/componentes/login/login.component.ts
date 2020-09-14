@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
-import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { Subscription } from "rxjs";
+import { TimerObservable } from "rxjs/observable/TimerObservable";
+import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-login',
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
     //     }
     // }
     // MoverBarraDeProgreso() {
-      
+
     //   this.logeando=false;
     //   this.clase="progress-bar progress-bar-danger progress-bar-striped active";
     //   this.progresoMensaje="NSA spy..."; 
@@ -69,7 +70,7 @@ export class LoginComponent implements OnInit {
     //         this.clase="progress-bar progress-bar-success progress-bar-striped active";
     //         this.progresoMensaje="Instalando KeyLogger..";
     //         break;
-            
+
     //       case 100:
     //         console.log("final");
     //         this.subscription.unsubscribe();
@@ -81,23 +82,18 @@ export class LoginComponent implements OnInit {
     // }
 
 
-    usuario = {
-      email: '',
-      clave: '',
-      reclave: ''
-  };
-    
-  constructor(private router: Router) { }
+    loginForm = new FormGroup({
+        email: new FormControl(''),
+        pass: new FormControl(''),
+    })
 
-  ngOnInit(): void {
-  }
+    constructor() { }
 
-  registro(form: NgForm) {
+    ngOnInit(): void {
+    }
 
-      if (form.invalid)
-          Object.values(form.controls).forEach(control => control.markAsTouched());
-      else 
-        this.router.navigateByUrl('/Login');
+    onLogin() {
+        console.log(this.loginForm.value);
+    }
 
-  }
 }
