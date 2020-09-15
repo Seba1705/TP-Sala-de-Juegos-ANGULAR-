@@ -47,8 +47,6 @@ import { environment } from '../environments/environment';
 
 // VARIABLES
 
-
-
 @NgModule({
     declarations: [
         AppComponent,

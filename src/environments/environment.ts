@@ -1,5 +1,5 @@
 export const environment = {
-    production: false,
+
     firebaseConfig: {
         apiKey: "AIzaSyA2BypGGsWQmuZBvIMsW9D10XvKGC2KJzg",
         authDomain: "sala-de-juegos-58a41.firebaseapp.com",
@@ -9,5 +9,6 @@ export const environment = {
         messagingSenderId: "993973477316",
         appId: "1:993973477316:web:67392345f93a1045120e91",
         measurementId: "G-J9VFNM0Y5H"
-      }
+    },
+    production: false
 };
