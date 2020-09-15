@@ -44,9 +44,10 @@ import { ArchivosJugadoresService } from './servicios/archivos-jugadores.service
 
 // PIPES
 import { SexoPipe } from './pipes/sexo.pipe';
+import { environment } from 'src/environments/environment';
 
 // VARIABLES
-import { environment } from './../environments/environment';
+
 
 
 @NgModule({
@@ -82,7 +83,7 @@ import { environment } from './../environments/environment';
         HttpClientModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireModule.initializeApp(environment),
         AngularFireAuthModule
         // AgmCoreModule.forRoot({
         //   apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
