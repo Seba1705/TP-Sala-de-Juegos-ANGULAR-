@@ -39,13 +39,19 @@ import { JuegoServiceService } from './servicios/juego-service.service';
 import { MiHttpService } from './servicios/mi-http/mi-http.service';
 import { PaisesService } from './servicios/paises.service';
 import { JugadoresService } from './servicios/jugadores.service';
+import { AuthService } from './services/auth.service';
 import { ArchivosJugadoresService } from './servicios/archivos-jugadores.service';
 
 // PIPES
 import { SexoPipe } from './pipes/sexo.pipe';
-import { environment } from '../environments/environment';
 
 // VARIABLES
+import { environment } from '../environments/environment';
+import { AuthGuard } from './services/auth.guard';
+
+// GUARDS
+
+
 
 @NgModule({
     declarations: [
@@ -89,7 +95,15 @@ import { environment } from '../environments/environment';
         // importo el ruteo
         // RouterModule.forRoot(MiRuteo)
     ],
-    providers: [JuegoServiceService, MiHttpService, PaisesService, ArchivosJugadoresService, JugadoresService],
+    providers: [
+        JuegoServiceService, 
+        MiHttpService, 
+        PaisesService, 
+        ArchivosJugadoresService, 
+        JugadoresService,
+        AuthService,
+        AuthGuard
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

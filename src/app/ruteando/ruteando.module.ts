@@ -1,8 +1,10 @@
+// MODULOS
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// importo del module principal
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { AdivinaElNumeroComponent } from '../componentes/adivina-el-numero/adivina-el-numero.component';
+
+// COMPONENTES
 import { ListadoDeResultadosComponent } from '../componentes/listado-de-resultados/listado-de-resultados.component';
 import { LoginComponent } from '../componentes/login/login.component';
 import { ErrorComponent } from '../componentes/error/error.component';
@@ -22,18 +24,22 @@ import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/lista
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 
+// GUARDS
+import { AuthGuard } from '../services/auth.guard';
+
+
 // declaro donde quiero que se dirija
 const MiRuteo = [
-    { path: 'Jugadores', component: JugadoresListadoComponent },
-    { path: '', component: PrincipalComponent },
+    { path: 'Jugadores', component: JugadoresListadoComponent, canActivate: [AuthGuard] },
+    { path: '', component: PrincipalComponent, canActivate: [AuthGuard] },
     { path: 'Login', component: LoginComponent },
-    { path: 'Mapa', component: MapaDeGoogleComponent },
-    { path: 'QuienSoy', component: QuienSoyComponent },
+    { path: 'Mapa', component: MapaDeGoogleComponent, canActivate: [AuthGuard] },
+    { path: 'QuienSoy', component: QuienSoyComponent, canActivate: [AuthGuard] },
     { path: 'Registro', component: RegistroComponent },
-    { path: 'Principal', component: PrincipalComponent },
-    { path: 'Listado', component: ListadoComponent },
-    { path: 'Paises', component: ListadoDePaisesComponent },
-    {
+    { path: 'Principal', component: PrincipalComponent, canActivate: [AuthGuard] },
+    { path: 'Listado', component: ListadoComponent, canActivate: [AuthGuard] },
+    { path: 'Paises', component: ListadoDePaisesComponent, canActivate: [AuthGuard] },
+    {   
         path: 'Juegos',
         component: JuegosComponent,
         children: [
@@ -42,7 +48,8 @@ const MiRuteo = [
             { path: 'AdivinaMasListado', component: AdivinaMasListadoComponent },
             { path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent },
             { path: 'Agilidad', component: AgilidadAritmeticaComponent }
-        ]
+        ],
+        canActivate: [AuthGuard]
     },
     { path: '**', pathMatch: 'full', component: PrincipalComponent },
     { path: 'error', component: ErrorComponent }
@@ -54,7 +61,8 @@ const MiRuteo = [
     ],
     exports: [
         RouterModule
-    ]
+    ],
+    providers: [AuthGuard]
 })
 
 export class RuteandoModule { }

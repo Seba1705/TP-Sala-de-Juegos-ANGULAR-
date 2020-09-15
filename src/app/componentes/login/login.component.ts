@@ -12,10 +12,7 @@ import Swal from 'sweetalert2';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css'],
-    providers: [
-        AuthService
-    ]
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
@@ -49,7 +46,9 @@ export class LoginComponent implements OnInit {
                 Swal.fire({
                     text: 'Verifique las credenciales ingresadas',
                     icon: 'error',
-                    title: 'Error al autenticar'
+                    title: 'Error al autenticar',
+                    cancelButtonColor: "#311B92",
+                    confirmButtonColor: "#311B92"
                 });
             }
 
@@ -62,7 +61,6 @@ export class LoginComponent implements OnInit {
             });
         }
     }
-
 
     // private subscription: Subscription;
     // usuario = '';
