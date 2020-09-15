@@ -5,13 +5,17 @@ import { NgForm } from '@angular/forms';
 import { Subscription } from "rxjs";
 import { TimerObservable } from "rxjs/observable/TimerObservable";
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
+    styleUrls: ['./login.component.css'],
+    providers: [
+        AuthService
+    ]
 })
 export class LoginComponent implements OnInit {
 
@@ -20,13 +24,43 @@ export class LoginComponent implements OnInit {
         password: new FormControl(''),
     })
 
-    constructor(private authSrv: AuthService) { }
+    constructor(private authSrv: AuthService, private router: Router) { }
 
     ngOnInit(): void {
     }
 
-    onLogin() {
-        console.log(this.loginForm.value);
+    async onLogin() {
+        const { email, password } = this.loginForm.value;
+
+        Swal.fire({
+            text: 'Espere por favor',
+            allowOutsideClick: false,
+            icon: 'info'
+        });
+        Swal.showLoading();
+
+        try {
+            const user = await this.authSrv.login(email, password);
+            if (user) {
+                Swal.close();
+                this.router.navigateByUrl('/Principal');
+            }
+            else {
+                Swal.fire({
+                    text: 'Verifique las credenciales ingresadas',
+                    icon: 'error',
+                    title: 'Error al autenticar'
+                });
+            }
+
+        }
+        catch(err) {
+            Swal.fire({
+                text: err,
+                icon: 'error',
+                title: 'Error al autenticar'
+            });
+        }
     }
 
 

@@ -4,11 +4,15 @@ import { NgForm } from '@angular/forms';
 
 import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-registro',
     templateUrl: './registro.component.html',
-    styleUrls: ['./registro.component.css']
+    styleUrls: ['./registro.component.css'],
+    providers: [
+        AuthService
+    ]
 })
 export class RegistroComponent implements OnInit {
 
@@ -17,14 +21,48 @@ export class RegistroComponent implements OnInit {
         password: new FormControl('')
     })
 
-    constructor() { }
+    constructor(private authSrv: AuthService, private router: Router) { }
 
     ngOnInit(): void {
     }
 
-    onRegister() {
-        // this.authService.register()
-        console.log(this.registerForm.value);
+    async onRegister() {
+        const { email, password } = this.registerForm.value;
+        
+        Swal.fire({
+            text: 'Espere por favor',
+            allowOutsideClick: false,
+            icon: 'info'
+        });
+        Swal.showLoading();
+
+        try {
+            const user = await this.authSrv.login(email, password);
+            if (user) {
+                Swal.close();
+                this.router.navigateByUrl('/Login');
+            }
+            else {
+                Swal.fire({
+                    text: 'Error',
+                    icon: 'error',
+                    title: 'Error al registrar',
+                    confirmButtonColor: '#311B92',
+                    showConfirmButton: true
+                });
+            }
+                
+        }
+        catch(err) {
+            Swal.fire({
+                text: err.error.error.message,
+                icon: 'error',
+                title: 'Error al autenticar',
+                confirmButtonColor: '#311B92',
+                showConfirmButton: true
+            });
+        }
     }
 
 }
+

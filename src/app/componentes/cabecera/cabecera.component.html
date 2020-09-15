@@ -1,26 +1,41 @@
 <nav class="navbar navbar-expand-lg back navbar-dark">
     <a class="navbar-brand" routerLink="/Principal">Sala de Juegos</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation" >
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link text-info" routerLink="/QuienSoy"><i class="fa fa-user"></i> ¿Quien Soy? </a>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link text-light" routerLink="/QuienSoy"><i class="fa fa-user"></i> ¿Quien Soy? </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-info" href="https://github.com/seba1705" target="_blank"><i
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link text-light" href="https://github.com/seba1705" target="_blank"><i
                         class="fab fa-github"></i> GitHub</a>
             </li>
         </ul>
-        <div class="form-inline my-2 my-lg-0">
-            <a class="nav-link text-info" routerLink="/Login">Ingresar</a> 
-            <a class="nav-link text-info" routerLink="/Registro">Registrarse</a>
-            <!-- <a *ngIf="!authService.isLoggedIn" class="nav-link text-info" routerLink="/Login">Ingresar</a> 
-            <a *ngIf="!authService.isLoggedIn" class="nav-link text-info" routerLink="/Registro">Registrarse</a> -->
-            <!-- <a *ngIf="authService.isLoggedIn" class=" pr-3 text-light" style="border-right:1px solid white;">{{usuarioLogueado.email}}</a>
-            <a *ngIf="authService.isLoggedIn" class="nav-link text-info pl-3" (click)="authService.SignOut()">Cerrar sesion</a> -->
-        </div>
+
+        <ul class="navbar-nav ml-auto" *ngIf="user$ | async as user; else login">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link text-light"> {{ user?.email }} </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link text-light" (click)="onLogout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Cerrar sesion
+                </a>
+            </li>
+        </ul>
+        <ng-template #login>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a href="#" class="nav-link text-light" routerLink="/Login">Ingresar</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a href="#" class="nav-link text-light" routerLink="/Registro">Registrarse</a>
+                </li>
+            </ul>
+        </ng-template>
+        
     </div>
 </nav>

@@ -4,6 +4,7 @@ import { map, first } from 'rxjs/operators';
 import { auth } from 'firebase/app';
 import { User } from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
+import Swal from 'sweetalert2';
 
 @Injectable({
     providedIn: 'root'
@@ -51,7 +52,11 @@ export class AuthService {
             return this.afAuth.authState.pipe(first()).toPromise();
         }
         catch(err) {
-            console.log(err);
+            Swal.fire({
+                text: err.error.error.message,
+                icon: 'error',
+                title: 'Error al autenticar'
+            });
         }
     }
    
