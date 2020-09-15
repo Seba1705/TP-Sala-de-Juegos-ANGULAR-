@@ -34,7 +34,6 @@ import { ListadoDePaisesComponent } from './componentes/listado-de-paises/listad
 import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-google.component'
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 
-
 // SERVICIOS
 import { JuegoServiceService } from './servicios/juego-service.service';
 import { MiHttpService } from './servicios/mi-http/mi-http.service';
@@ -44,7 +43,7 @@ import { ArchivosJugadoresService } from './servicios/archivos-jugadores.service
 
 // PIPES
 import { SexoPipe } from './pipes/sexo.pipe';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 
 // VARIABLES
 
@@ -83,7 +82,7 @@ import { environment } from 'src/environments/environment';
         HttpClientModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,
-        AngularFireModule.initializeApp(environment),
+        AngularFireModule.initializeApp(environment.firebaseConfig),
         AngularFireAuthModule
         // AgmCoreModule.forRoot({
         //   apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
