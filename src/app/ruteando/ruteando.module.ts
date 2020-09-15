@@ -44,7 +44,7 @@ const MiRuteo = [
             { path: 'Agilidad', component: AgilidadAritmeticaComponent }
         ]
     },
-    { path: '**', component: ErrorComponent },
+    { path: '**', pathMatch: 'full', component: PrincipalComponent },
     { path: 'error', component: ErrorComponent }
 ];
 

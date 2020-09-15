@@ -52,11 +52,7 @@ export class AuthService {
             return this.afAuth.authState.pipe(first()).toPromise();
         }
         catch(err) {
-            Swal.fire({
-                text: err.error.error.message,
-                icon: 'error',
-                title: 'Error al autenticar'
-            });
+            console.log(err);
         }
     }
    

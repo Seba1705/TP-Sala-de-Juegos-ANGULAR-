@@ -20,7 +20,7 @@
                 <a class="nav-link text-light"> {{ user?.email }} </a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link text-light" (click)="onLogout()">
+                <a class="nav-link text-light logout" (click)="onLogout()">
                     <i class="fas fa-sign-out-alt"></i>
                     Cerrar sesion
                 </a>
@@ -29,10 +29,10 @@
         <ng-template #login>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" routerLinkActive="active">
-                    <a href="#" class="nav-link text-light" routerLink="/Login">Ingresar</a>
+                    <a class="nav-link text-light" routerLink="/Login">Ingresar</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active">
-                    <a href="#" class="nav-link text-light" routerLink="/Registro">Registrarse</a>
+                    <a class="nav-link text-light" routerLink="/Registro">Registrarse</a>
                 </li>
             </ul>
         </ng-template>

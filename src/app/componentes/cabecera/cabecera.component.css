@@ -9,3 +9,7 @@ a:hover {
 .back {
     background-color: #311B92;
 }
+
+.logout {
+    cursor: pointer;
+}
