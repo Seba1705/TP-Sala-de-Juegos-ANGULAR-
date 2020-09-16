@@ -16,12 +16,14 @@ import { of } from 'rxjs';
 export class AuthService extends RoleValidator {
 
     public user$: Observable<User>;
+    isLogged:any = false;
 
     constructor(public afAuth: AngularFireAuth, 
                 private afs: AngularFirestore) { 
-
         super(); 
         
+        afAuth.authState.subscribe( user => this.isLogged = user);
+
         this.user$ = this.afAuth.authState.pipe(
             switchMap(user => {
                 if(user)

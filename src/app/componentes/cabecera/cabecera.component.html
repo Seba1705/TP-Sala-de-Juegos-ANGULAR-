@@ -6,6 +6,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Menú de Juegos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" (click)="Juego('Adivina')">Adivina</a>
+                    <a class="dropdown-item" (click)="Juego('Agilidad')">Agilidad</a>
+                    <a class="dropdown-item" (click)="Juego('AdivinaMasListado')">Adivina + listado</a>
+                    <a class="dropdown-item" (click)="Juego('AgilidadaMasListado')">Agilidad + listado</a>
+                </div>
+            </li>
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link text-light" routerLink="/QuienSoy"><i class="fa fa-user"></i> ¿Quien Soy? </a>
             </li>

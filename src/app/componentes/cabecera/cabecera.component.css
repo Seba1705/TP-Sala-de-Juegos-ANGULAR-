@@ -13,3 +13,9 @@ a:hover {
 .logout {
     cursor: pointer;
 }
+
+
+.dropdown-menu > a {
+    color: black !important;
+
+}

@@ -1,40 +1,27 @@
-<app-cabecera> </app-cabecera>
-
-<!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<!-- index.html -->
-
-
-<!-- <form name="juego">
-<ul>
-   <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  
-  </li>
-  <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
-  </li>
-  <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
-
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>
-
-</form> -->
+<!-- <app-titulo titulo="Resuelve esta operacion aritmetica antes de que se acabe el tiempo."></app-titulo> -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 animated {{clase}} text-center imagen"><img class="animated fadeInLeft"
+                src="../../../assets/imagenes/cerebro.jpg alt=""></div>
+        <div class="col-md-5 animated fadeInRight box-s">
+            <input placeholder="{{nuevoJuego.primerNumero}}" placeholder="?" name="numeroIngresado" type="text"
+                class="centro" style="width:100%;" readonly />
+            <div>
+                <input placeholder="{{nuevoJuego.operando}}" name="numeroIngresado" type="text" class="centro"
+                    style="width:75%;" readonly />
+                <input placeholder="{{nuevoJuego.segundoNumero}}" placeholder="?" name="numeroIngresado" type="text"
+                    class="centro" style="width:25%; float:right;" readonly />
+                <div class="separator"></div>
+                <input [(ngModel)]="nuevoJuego.eleccionUsuario" placeholder="?" name="numeroIngresado" type="text"
+                    class="form-control respuesta" style="width:100%;color:#17a2b8;" />
+                <div>
+                    <h2 [hidden]="!ocultarVerificar" class="mt-3 float-right"><button (click)="NuevoJuego()"
+                            mat-raised-button color="primary">Nuevo juego</button></h2>
+                    <h2 [hidden]="ocultarVerificar" class="mt-3 text-right">Tiempo restante: {{Tiempo}}</h2>
+                    <h2 [hidden]="ocultarVerificar" class="mt-3 float-right"><button (click)="verificar()"
+                            mat-raised-button color="accent">Ingresar respuesta </button></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
