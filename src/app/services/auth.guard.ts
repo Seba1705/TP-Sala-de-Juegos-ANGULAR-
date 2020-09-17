@@ -20,17 +20,7 @@ export class AuthGuard implements CanActivate {
 
         if (this.authSrv.isLogged)
             return true;
-
-        Swal.fire({
-            text: 'Debe autenticarse para acceder a la ruta especificada',
-            icon: 'error',
-            title: 'Acceso denegado',
-            cancelButtonColor: "#311B92",
-            confirmButtonColor: "#311B92"
-
-        });
-        this.router.navigateByUrl('/Login');
+      
         return false;
     }
-
 }

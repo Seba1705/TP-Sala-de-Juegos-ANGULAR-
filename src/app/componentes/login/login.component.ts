@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
         try {
             const user = await this.authSrv.login(email, password);
             if (user) {
+                console.log('User', user)
                 Swal.close();
                 this.router.navigateByUrl('/Principal');
             }

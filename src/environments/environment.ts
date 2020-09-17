@@ -8,7 +8,7 @@ export const environment = {
         storageBucket: "sala-de-juegos-58a41.appspot.com",
         messagingSenderId: "993973477316",
         appId: "1:993973477316:web:67392345f93a1045120e91",
-        measurementId: "G-J9VFNM0Y5H"
+        measurementId: "G-J9VFNM0Y5H"      
     },
     production: false
 };

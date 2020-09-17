@@ -34,7 +34,7 @@ export class RegistroComponent implements OnInit {
         Swal.showLoading();
 
         try {
-            const user = await this.authSrv.login(email, password);
+            const user = await this.authSrv.register(email, password);
             if (user) {
                 Swal.close();
                 this.router.navigateByUrl('/Login');
