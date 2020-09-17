@@ -26,8 +26,10 @@ export class AuthService extends RoleValidator {
 
         this.user$ = this.afAuth.authState.pipe(
             switchMap(user => {
-                if(user)
+                if(user) {
+                    console.log('CHOCLO');
                     return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+                }
                 
                 return of(null);
             })
