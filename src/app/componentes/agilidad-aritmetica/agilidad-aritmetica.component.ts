@@ -32,7 +32,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         this.nuevoJuego.primerNumero = 0;
         this.nuevoJuego.segundoNumero = 0;
         console.info("Inicio agilidad");
-        this.usuarioLogueado = JSON.parse(localStorage.getItem('user'));
+        // this.usuarioLogueado = JSON.parse(localStorage.getItem('user'));
 
     }
     NuevoJuego() {

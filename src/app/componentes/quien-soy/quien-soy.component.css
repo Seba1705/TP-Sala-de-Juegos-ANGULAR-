@@ -2,7 +2,7 @@
     font-size: 70px;
 }
 
- img{
+.figure-img{
     border-radius: 50px !important;
 }
 
@@ -15,3 +15,80 @@
     background-color: #651FFF;
 
 }
+
+.redes-sociales {
+    border-top: 1px solid #cbcbcb;
+    padding: 40px 0;
+    margin-bottom: 40px;
+}
+
+.redes-sociales .icono {
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+    line-height: 70px;
+    color: #fff;
+    text-align: center;
+    background: #cbcbcb;
+    display: inline-block;
+    margin: 0px 20px;
+    text-decoration: none;
+    border-radius: 100%;
+    transition: all .3s ease;
+}
+
+.redes-sociales .facebook { background: #3b5998; }
+.redes-sociales .instagram { background: #833ab4; }
+.redes-sociales .github { background: #211f1f; }
+.redes-sociales .linkedin { background: #0e72a8; }
+
+
+.sobre-mi {
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.sobre-mi .foto { text-align: center; }
+
+.sobre-mi .foto img { 
+    margin-bottom: 30px;
+    height: 250px;
+}
+
+.sobre-mi .foto .nombre {
+    color: #545454;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.sobre-mi .info .titulo {
+    color: #311B92;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre-mi .info .resumen { letter-spacing: 1px; }
+
+.sobre-mi .info .label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #311B92;
+    margin-bottom: 10px;
+}
+
+.titulo-2 {
+    color: #311B92;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.border-back {
+    cursor: pointer;
+    background-color: #EDE7F6;
+}
+

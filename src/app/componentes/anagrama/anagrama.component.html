@@ -1,5 +1,41 @@
 
 
-<p>
-  anagrama works!
-</p>
+<div class="container animated fadeIn faster">
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+            <div class="card">
+                <div class="card-body">
+                    <div class="contenedor">
+                        <h4>Palabras correctas:</h4>
+                        <div id="countScore"><span>{{score}}</span></div>
+                        <div id="canvas">
+                            <div id="words">
+                                <div class="letter fadeIn" *ngFor="let letter of letters; let i = index"
+                                    [ngClass]="{letterVisible:isLetterVisible(),letterHidden:isLetterHiding(),letterCorrect:isCorrectLetter()}">
+                                    {{letter}}
+                                </div>
+                            </div>
+                        </div>
+                        <form id="control text-center">
+                            <h4 class="text-center reloj" [ngClass]="{'peligro': seconds <= 10}">{{seconds}}</h4>
+                            <div *ngIf="seconds > 0" class="col-10">
+                                <input type="text" name="answer" [(ngModel)]="answer" focus="answer.length === 0"
+                                    placeholder="Ingresar palabra" autofocus="autofocus">
+                            </div>
+                            <div class="col text-center mt-5">
+                                <button *ngIf="seconds > 0" class="btn back text-uppercase mr-2 mb-2 " type="submit"
+                                    (click)="validateWord()">Ingresar</button>
+                                <button *ngIf="seconds > 0" class="btn btn-outline-dark text-uppercase mr-2 mb-2"
+                                    (click)="nextWord()">Saltear</button>
+                                <button *ngIf="seconds === 0" class="btn btn-info text-uppercase mb-2" (click)="initGame()">Jugar de
+                                    nuevo</button><br>
+                                <button *ngIf="seconds === 0" class="btn btn-secondary text-uppercase mb-2" (click)="CargarPuntaje()">Cargar
+                                    resultados</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

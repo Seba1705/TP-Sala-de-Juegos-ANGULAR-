@@ -9,7 +9,7 @@ input{
     float: right;
 }
 .respuesta{
-    border: 2px solid #17a2b8;
+    border: 2px solid #311B92;
     margin-top: 15px;
 }
 .box-s{
@@ -30,4 +30,18 @@ input{
     input{
         font-size: 40px;    
     }
+}
+
+.back {
+    background-color: #311B92;
+    color: white;
+}
+
+.back:hover {
+    background-color: #651FFF;
+
+}
+
+.btn-outline-dark:hover {
+    background-color: #311B92 !important;
 }

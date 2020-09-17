@@ -48,6 +48,10 @@ import { SexoPipe } from './pipes/sexo.pipe';
 // VARIABLES
 import { environment } from '../environments/environment';
 import { AuthGuard } from './services/auth.guard';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { PptComponent } from './componentes/ppt/ppt.component';
+import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 // GUARDS
 
@@ -77,7 +81,10 @@ import { AuthGuard } from './services/auth.guard';
         MapaDeGoogleComponent,
         JugadoresListadoComponent,
         InputJugadoresComponent,
-        SexoPipe
+        SexoPipe,
+        PptComponent,
+        AhorcadoComponent,
+        TatetiComponent
     ],
     imports: [
         BrowserModule,
@@ -87,7 +94,8 @@ import { AuthGuard } from './services/auth.guard';
         BrowserAnimationsModule,
         ReactiveFormsModule,
         AngularFireModule.initializeApp(environment.firebaseConfig),
-        AngularFireAuthModule
+        AngularFireAuthModule,
+        MatSnackBarModule
         // AgmCoreModule.forRoot({
         //   apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
         // })

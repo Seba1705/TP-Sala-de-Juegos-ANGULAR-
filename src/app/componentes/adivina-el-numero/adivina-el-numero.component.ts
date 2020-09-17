@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { JuegoAdivina } from '../../clases/juego-adivina'
 import { AuthService } from '../../services/auth.service';
 
@@ -18,7 +18,7 @@ export class AdivinaElNumeroComponent implements OnInit {
 
     constructor(public auth: AuthService) {
         this.nuevoJuego = new JuegoAdivina();
-        // console.info("numero Secreto:", this.nuevoJuego.numeroSecreto);
+        console.info("numero Secreto:", this.nuevoJuego.numeroSecreto);
         this.ocultarVerificar = false;
         this.usuarioLogueado = JSON.parse(localStorage.getItem('user'));
     }

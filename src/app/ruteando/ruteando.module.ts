@@ -1,3 +1,5 @@
+import { AhorcadoComponent } from './../componentes/ahorcado/ahorcado.component';
+import { AnagramaComponent } from './../componentes/anagrama/anagrama.component';
 // MODULOS
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -26,6 +28,8 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 
 // GUARDS
 import { AuthGuard } from '../services/auth.guard';
+import { PptComponent } from '../componentes/ppt/ppt.component';
+import { TatetiComponent } from '../componentes/tateti/tateti.component';
 
 
 // declaro donde quiero que se dirija
@@ -47,7 +51,11 @@ const MiRuteo = [
             { path: 'Adivina', component: AdivinaElNumeroComponent },
             { path: 'AdivinaMasListado', component: AdivinaMasListadoComponent },
             { path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent },
-            { path: 'Agilidad', component: AgilidadAritmeticaComponent }
+            { path: 'Agilidad', component: AgilidadAritmeticaComponent },
+            { path: 'Anagrama', component: AnagramaComponent },
+            { path: 'Ahorcado', component: AhorcadoComponent },
+            { path: 'Tateti', component: TatetiComponent },
+            { path: 'Ppt', component: PptComponent }
         ],
         canActivate: [AuthGuard]
     },

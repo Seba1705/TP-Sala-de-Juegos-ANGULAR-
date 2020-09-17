@@ -42,6 +42,18 @@ export class CabeceraComponent {
             case 'AgilidadaMasListado':
                 this.router.navigate(['/Juegos/AgilidadaMasListado']);
                 break;
+            case 'Ppt':
+                this.router.navigate(['/Juegos/Ppt']);
+                break;
+            case 'Anagrama':
+                this.router.navigate(['/Juegos/Anagrama']);
+                break;
+            case 'Ahorcado':
+                this.router.navigate(['/Juegos/Ahorcado']);
+                break;
+            case 'Tateti':
+                this.router.navigate(['/Juegos/Tateti']);
+                break;
         }
     }
 }
