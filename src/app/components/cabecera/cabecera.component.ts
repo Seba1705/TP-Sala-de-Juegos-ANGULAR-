@@ -14,13 +14,15 @@ import { AuthService } from '../../services/auth.service';
 export class CabeceraComponent implements OnInit {
 
     constructor(public authSrv: AuthService, private router: Router) { }
+    isLogged: boolean;
 
     ngOnInit(): void {
-        
+        this.authSrv.estaAutenticado();
     }
 
     salir() {
         this.authSrv.logout();
+        this.isLogged = false;
         this.router.navigateByUrl('/Login');
     }
 
