@@ -1,92 +1,82 @@
-import { RoleValidator } from './../auht/helper/role-validator.class';
-import { Observable } from 'rxjs/Observable';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { map, first, switchMap } from 'rxjs/operators';
-import { User } from '../shared/user.interface';
-import { AngularFireAuth } from '@angular/fire/auth';
-import Swal from 'sweetalert2';
-import { of } from 'rxjs';
 
+import { UsuarioModel } from '../models/app.models';
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
-export class AuthService extends RoleValidator {
+export class AuthService {
 
-    public user$: Observable<User>;
-    isLogged:any = false;
+    private url = 'https://identitytoolkit.googleapis.com/v1/accounts:';
+    private apiKey = 'AIzaSyA4DAb5UCPOruuRvnDZrDYVR7UxaCKGoWs';
+    autenticado$ = new EventEmitter<boolean>();
+    userToken: string;
 
-    constructor(public afAuth: AngularFireAuth, 
-                private afs: AngularFirestore) { 
-        super(); 
-        
-        afAuth.authState.subscribe( user => this.isLogged = user);
-
-        this.user$ = this.afAuth.authState.pipe(
-            switchMap(user => {
-                if(user) {
-                    console.log('CHOCLO');
-                    return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-                }
-                
-                return of(null);
-            })
-        )
+    constructor(private http: HttpClient) { 
+        this.leerToken();
     }
     
-    async login(email: string, password: string): Promise<User> {
-        try {
-            const { user } = await this.afAuth.signInWithEmailAndPassword(email, password);
-            // this.updateUserData(user);
-            return user;
-        }
-        catch(err){
-            console.log(err.message);
-        }
+    nuevoUsuario (user: UsuarioModel) {
+        const authData = {
+            ...user,
+            returnSecureToken: true
+        };
 
+        return this.http.post(`${this.url}signUp?key=${this.apiKey}`, authData).pipe(
+            map(resp => {
+                this.guardarToken(resp['idToken']);
+                return resp;
+            })
+        );
     }
 
-    async logout() {
-        try {
-            await this.afAuth.signOut(); 
-        }
-        catch(err) {
-            console.log(err);
-        }
+    login (user: UsuarioModel) {
+        const authData = {
+            ...user,
+            returnSecureToken: true
+        };
+
+        return this.http.post(`${this.url}signInWithPassword?key=${this.apiKey}`, authData).pipe(
+            map(resp => {
+                this.guardarToken(resp['idToken']);
+                return resp;
+            })
+        );
     }
 
-    async register(email: string, password: string): Promise<any>{
-        try {
-            const { user } = await this.afAuth.createUserWithEmailAndPassword(email, password);
-            return user;
-        }
-        catch(err) {
-            console.log(err);
-        }
+    logout (){
+        localStorage.removeItem('token');
     }
 
-    getCurrentUser() {
-        try {
-            return this.afAuth.authState.pipe(first()).toPromise();
-        }
-        catch(err) {
-            console.log(err);
-        }
-    }
-   
-    private updateUserData(user: User) {
-        const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    guardarToken (idToken: string){
+        this.userToken = idToken;
+        localStorage.setItem('token', idToken);
 
-        const data: User = {
-            uid: user.uid,
-            email: user.email,
-            role: 'Admin'
-        }
+        let hoy = new Date();
+        hoy.setSeconds(3600);
 
-        return userRef.set(data, { merge: true });
+        localStorage.setItem('expira', hoy.getTime().toString())
     }
+
+    leerToken(){
+        if(localStorage.getItem('token'))
+            this.userToken = localStorage.getItem('token');
+        else    
+            this.userToken = '';
+        
+        return this.userToken;
+    }
+
+    estaAutenticado(): boolean{
+        if(this.userToken.length < 2)
+            return false;  
+        
+        const expira = Number(localStorage.getItem('expira')); 
+        const expiraDate = new Date();
+        expiraDate.setTime(expira);
+        
+        return expiraDate > new Date() ? true : false;
+    }z
 }
-
-

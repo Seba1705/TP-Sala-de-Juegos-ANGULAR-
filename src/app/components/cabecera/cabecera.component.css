@@ -1,0 +1,22 @@
+a {
+    color: white !important;
+}
+
+a:hover {
+    color: white !important;
+}
+
+.back {
+    background-color: #311B92;
+}
+
+.logout, .opciones {
+    cursor: pointer;
+}
+
+
+.dropdown-menu > a {
+    color: black !important;
+
+}
+
