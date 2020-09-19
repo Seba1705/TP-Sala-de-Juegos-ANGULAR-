@@ -47,6 +47,7 @@ import { AuthGuard } from './guards/auth.guard';
 // PIPES
 import { SexoPipe } from './pipes/sexo.pipe';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TituloComponent } from './components/titulo/titulo.component';
 
 
 @NgModule({
@@ -76,7 +77,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         SexoPipe,
         PptComponent,
         AhorcadoComponent,
-        TatetiComponent
+        TatetiComponent,
+        TituloComponent
     ],
     imports: [
         BrowserModule,

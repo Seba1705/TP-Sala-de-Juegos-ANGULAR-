@@ -31,14 +31,14 @@ section {
 	height: 100px;
 } */
 .letter {
-	width: 70px;
-	height: 70px;
+	width: 60px;
+	height: 60px;
 	border-bottom: 3px solid white;
 	background-color: #311B92;
 	border-radius: 10px;
 	size: 50px;
 	font-size: 35px;
-	line-height: 70px;
+	line-height: 60px;
 	color: white;
 	display: inline-block;
 	margin-left: 15px;
@@ -164,3 +164,4 @@ input[name="answer"] {
 .btn-outline-dark:hover {
     background-color: #311B92 !important;
 }
+

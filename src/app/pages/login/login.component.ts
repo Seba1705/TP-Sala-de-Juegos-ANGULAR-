@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('email', this.usuario.email);
     
                     Swal.close();
-                    this.auth.autenticado$.emit(true);
                     this.router.navigateByUrl('/Principal');
                 },
                 (err) => {

@@ -11,11 +11,12 @@ export class AuthService {
 
     private url = 'https://identitytoolkit.googleapis.com/v1/accounts:';
     private apiKey = 'AIzaSyA4DAb5UCPOruuRvnDZrDYVR7UxaCKGoWs';
-    autenticado$ = new EventEmitter<boolean>();
+    autenticado: boolean;
     userToken: string;
 
     constructor(private http: HttpClient) { 
         this.leerToken();
+        this.autenticado = this.estaAutenticado();
     }
     
     nuevoUsuario (user: UsuarioModel) {
@@ -47,6 +48,7 @@ export class AuthService {
     }
 
     logout (){
+        this.autenticado = false;
         localStorage.removeItem('token');
     }
 

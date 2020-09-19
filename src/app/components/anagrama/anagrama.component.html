@@ -1,4 +1,4 @@
-
+<app-titulo titulo="Ordena las letras para formar una palabra"></app-titulo>
 
 <div class="container animated fadeIn faster">
     <div class="row">
@@ -27,9 +27,9 @@
                                     (click)="validateWord()">Ingresar</button>
                                 <button *ngIf="seconds > 0" class="btn btn-outline-dark text-uppercase mr-2 mb-2"
                                     (click)="nextWord()">Saltear</button>
-                                <button *ngIf="seconds === 0" class="btn btn-info text-uppercase mb-2" (click)="initGame()">Jugar de
+                                <button *ngIf="seconds === 0" class="btn btn-outline-dark mb-4" (click)="initGame()">Jugar de
                                     nuevo</button><br>
-                                <button *ngIf="seconds === 0" class="btn btn-secondary text-uppercase mb-2" (click)="CargarPuntaje()">Cargar
+                                <button *ngIf="seconds === 0" class="btn btn-outline-dark" (click)="CargarPuntaje()">Cargar
                                     resultados</button>
                             </div>
                         </form>

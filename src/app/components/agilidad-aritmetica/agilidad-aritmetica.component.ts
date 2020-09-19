@@ -26,7 +26,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
     constructor(private snackBar: MatSnackBar, public auth: AuthService) {
         this.ocultarVerificar = true;
-        this.Tiempo = 10;
+        this.Tiempo = 5;
         this.nuevoJuego = new JuegoAgilidad();
         this.nuevoJuego.primerNumero = 0;
         this.nuevoJuego.segundoNumero = 0;
@@ -44,7 +44,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
                 clearInterval(this.repetidor);
                 this.verificar();
                 this.ocultarVerificar = true;
-                this.Tiempo = 10;
+                this.Tiempo = 5;
                 this.enviarJuego.emit(this.nuevoJuego);
             }
         }, 900);
@@ -63,7 +63,6 @@ export class AgilidadAritmeticaComponent implements OnInit {
             this.nuevoJuego.gano = true;
             this.enviarJuego.emit(this.nuevoJuego);
             clearInterval(this.repetidor);
-            console.log("ganaste");
             this.snackBar.open('Felicitaciones, ganaste!', '', {
                 duration: 3000
             });
@@ -72,7 +71,6 @@ export class AgilidadAritmeticaComponent implements OnInit {
             console.info(this.nuevoJuego);
         }
         else {
-            console.log("perdiste");
             this.snackBar.open('Respuesta incorrecta', '', {
                 duration: 3000
             });
