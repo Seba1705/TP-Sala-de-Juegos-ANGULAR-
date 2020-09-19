@@ -14,15 +14,18 @@ import { AuthService } from '../../services/auth.service';
 export class CabeceraComponent implements OnInit {
 
     constructor(public authSrv: AuthService, private router: Router) { }
-    isLogged: boolean;
+
+    isLogged: boolean = false;
 
     ngOnInit(): void {
-        this.authSrv.estaAutenticado();
+        this.authSrv.autenticado$.subscribe( resp => {
+            this.isLogged = resp;
+            console.log(this.isLogged);
+        });
     }
 
     salir() {
         this.authSrv.logout();
-        this.isLogged = false;
         this.router.navigateByUrl('/Login');
     }
 

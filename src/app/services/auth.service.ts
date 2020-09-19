@@ -78,5 +78,5 @@ export class AuthService {
         expiraDate.setTime(expira);
         
         return expiraDate > new Date() ? true : false;
-    }z
+    }
 }
