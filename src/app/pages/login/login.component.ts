@@ -48,7 +48,8 @@ export class LoginComponent implements OnInit {
                     Swal.fire({
                         text: err.error.error.message,
                         icon: 'error',
-                        title: 'Error al autenticar'
+                        title: 'Error al autenticar',
+                        confirmButtonColor: '#311B92',
                     });
             }
         );
