@@ -34,6 +34,7 @@
                         class="fab fa-github"></i> GitHub</a>
             </li>
         </ul>
+
         <ul class="navbar-nav ml-auto">
             <li class="nav-item" routerLinkActive="active">
                 <a class="nav-link text-light"></a>
@@ -45,10 +46,10 @@
                 </a>
             </li>
             <li class="nav-item" routerLinkActive="active" >
-                <a class="nav-link text-light opciones" routerLink="/Login">Ingresar</a>
+                <a class="nav-link text-light opciones" routerLink="/Login" *ngIf="!isLogged">Ingresar</a>
             </li>
             <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link text-light opciones" routerLink="/Registro">Registrarse</a>
+                <a class="nav-link text-light opciones" routerLink="/Registro" *ngIf="!isLogged">Registrarse</a>
             </li>
         </ul>
 

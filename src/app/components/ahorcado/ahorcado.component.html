@@ -1,1 +1,33 @@
-<p>ahorcado works!</p>
+<app-titulo titulo="Adivina la palabra si no quieres morir"></app-titulo>
+
+<div class="container">
+    <div class="offset-md-2 col-md-8 text-center">
+        <!-- <div id="snackbar" class="speech-bubble">{{ Mensajes }}</div> -->
+        <div class="row">
+            <div class="colo">
+                <img src="../../../assets/ahorcado/{{ numeroDeFallos }}.png" alt="" width="300" height="300">
+            </div>
+            <div class="col">
+                <div id="words-2">
+                    <div class="letter-2 fadeIn" *ngFor="let letter of fallos; let i = index">
+                        {{letter}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-center">
+            <div class="card-body">
+                <h2 class="card-title letter-spacing">{{ palabraAdivinadaPorAhora }}</h2>
+
+                <div>
+                    <div id="words">
+                        <div class="letter fadeIn" *ngFor="let letter of letras; let i = index"
+                            (click)="letraPresionada(letter)">
+                            {{letter}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

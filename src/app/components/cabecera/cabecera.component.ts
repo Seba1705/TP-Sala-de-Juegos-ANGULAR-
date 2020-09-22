@@ -1,29 +1,24 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
     selector: 'app-cabecera',
     templateUrl: './cabecera.component.html',
-    styleUrls: ['./cabecera.component.css'],
-    providers: [
-        AuthService
-    ]
+    styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
-
-    isLogged: boolean;
+    @Input() isLogged: boolean;
 
     constructor(public authSrv: AuthService, private router: Router) { }
 
     ngOnInit(): void {
-        this.isLogged = this.authSrv.estaAutenticado();
+        
     }
 
     salir() {
         this.authSrv.logout();
-        this.ngOnInit();
         this.router.navigateByUrl('/Login');
     }
 
