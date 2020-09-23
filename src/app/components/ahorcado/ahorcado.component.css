@@ -192,3 +192,18 @@ input[name="answer"] {
 	letter-spacing: 20px;
 	font-size: 30px;
 }
+
+.acertado {
+	background-color: #03dac6 !important;
+	
+}
+
+.noAcertado {
+	background-color: #b00020 !important;
+
+}
+
+.noPresionado {
+	background-color: #311B92;
+}
+

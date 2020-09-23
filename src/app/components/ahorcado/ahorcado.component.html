@@ -3,27 +3,28 @@
 <div class="container">
     <div class="offset-md-2 col-md-8 text-center">
         <!-- <div id="snackbar" class="speech-bubble">{{ Mensajes }}</div> -->
-        <div class="row">
-            <div class="colo">
-                <img src="../../../assets/ahorcado/{{ numeroDeFallos }}.png" alt="" width="300" height="300">
-            </div>
-            <div class="col">
-                <div id="words-2">
-                    <div class="letter-2 fadeIn" *ngFor="let letter of fallos; let i = index">
-                        {{letter}}
+        
+        <div class="card text-center">
+            <div class="row">
+                <div class="colo p-4">
+                    <img src="../../../assets/ahorcado/{{ numeroDeFallos }}.png" alt="" width="250" height="250">
+                </div>
+                <div class="col">
+                    <div id="words-2">
+                        <div class="letter-2 fadeIn" *ngFor="let letter of fallos; let i = index">
+                            {{letter}}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card text-center">
             <div class="card-body">
                 <h2 class="card-title letter-spacing">{{ palabraAdivinadaPorAhora }}</h2>
 
                 <div>
                     <div id="words">
-                        <div class="letter fadeIn" *ngFor="let letter of letras; let i = index"
-                            (click)="letraPresionada(letter)">
-                            {{letter}}
+                        <div class="letter fadeIn" *ngFor="let boton of botones"
+                            (click)="letraPresionada(boton)" [ngClass]="boton.estado">
+                            {{boton.letra}}
                         </div>
                     </div>
                 </div>
