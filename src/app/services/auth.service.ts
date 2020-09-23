@@ -14,6 +14,10 @@ export class AuthService {
     private apiKey = 'AIzaSyA4DAb5UCPOruuRvnDZrDYVR7UxaCKGoWs';
     userToken: string;
 
+    user: UsuarioModel;
+    private usuarioSubject = new Subject<UsuarioModel>();
+    usuarioObservable = this.usuarioSubject.asObservable();
+
     mensaje: boolean;
     private mensajeSubject = new Subject<boolean>();
     mensajeObservable = this.mensajeSubject.asObservable();
@@ -25,6 +29,11 @@ export class AuthService {
     enviarMensaje(mensaje: boolean){
         this.mensaje = mensaje;
         this.mensajeSubject.next(mensaje);
+    }
+
+    enviarUsuario(usuario: UsuarioModel){
+        this.user = usuario;
+        this.usuarioSubject.next(usuario);
     }
     
     nuevoUsuario (user: UsuarioModel) {
@@ -50,12 +59,15 @@ export class AuthService {
         return this.http.post(`${this.url}signInWithPassword?key=${this.apiKey}`, authData).pipe(
             map(resp => {
                 this.guardarToken(resp['idToken']);
+                this.enviarMensaje(true);
+                this.enviarUsuario(user);
                 return resp;
             })
         );
     }
 
     logout (){
+        this.user = null;
         localStorage.removeItem('token');
     }
 

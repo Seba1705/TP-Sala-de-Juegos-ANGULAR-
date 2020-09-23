@@ -195,15 +195,30 @@ input[name="answer"] {
 
 .acertado {
 	background-color: #03dac6 !important;
+	cursor: pointer;
 	
 }
 
 .noAcertado {
 	background-color: #b00020 !important;
+	cursor: pointer;
 
 }
 
 .noPresionado {
 	background-color: #311B92;
+	cursor: pointer;
 }
 
+.acertado:hover {
+	opacity: 0.5;
+}
+
+.noAcertado:hover {
+	
+	opacity: 0.5;
+}
+
+.noPresionado:hover {
+	opacity: 0.5;
+}

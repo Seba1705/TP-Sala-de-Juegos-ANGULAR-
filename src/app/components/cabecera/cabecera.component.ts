@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { UsuarioModel } from 'src/app/models/app.models';
 
 
 @Component({
@@ -10,12 +11,15 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class CabeceraComponent implements OnInit {
     isLogged: boolean;
+    user: UsuarioModel;
 
     constructor(public authSrv: AuthService, private router: Router) { }
 
     ngOnInit(): void {
         this.isLogged = this.authSrv.estaAutenticado();
+        this.user = this.authSrv.user;
         this.authSrv.mensajeObservable.subscribe(resp => this.isLogged = resp);
+        this.authSrv.usuarioObservable.subscribe(resp => this.user = resp);
     }
 
     salir() {
