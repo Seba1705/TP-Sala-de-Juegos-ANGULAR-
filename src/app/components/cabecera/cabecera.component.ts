@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -9,16 +9,18 @@ import { AuthService } from 'src/app/services/auth.service';
     styleUrls: ['./cabecera.component.css']
 })
 export class CabeceraComponent implements OnInit {
-    @Input() isLogged: boolean;
+    isLogged: boolean;
 
     constructor(public authSrv: AuthService, private router: Router) { }
 
     ngOnInit(): void {
-        
+        this.isLogged = this.authSrv.estaAutenticado();
+        this.authSrv.mensajeObservable.subscribe(resp => this.isLogged = resp);
     }
 
     salir() {
         this.authSrv.logout();
+        this.authSrv.enviarMensaje(false);
         this.router.navigateByUrl('/Login');
     }
 

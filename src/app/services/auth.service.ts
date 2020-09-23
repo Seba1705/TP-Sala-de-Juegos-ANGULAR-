@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { UsuarioModel } from '../models/app.models';
 import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -13,8 +14,17 @@ export class AuthService {
     private apiKey = 'AIzaSyA4DAb5UCPOruuRvnDZrDYVR7UxaCKGoWs';
     userToken: string;
 
+    mensaje: boolean;
+    private mensajeSubject = new Subject<boolean>();
+    mensajeObservable = this.mensajeSubject.asObservable();
+
     constructor(private http: HttpClient) { 
         this.leerToken();
+    }
+
+    enviarMensaje(mensaje: boolean){
+        this.mensaje = mensaje;
+        this.mensajeSubject.next(mensaje);
     }
     
     nuevoUsuario (user: UsuarioModel) {

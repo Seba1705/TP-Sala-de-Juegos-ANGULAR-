@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
                         localStorage.setItem('email', this.usuario.email);
     
                     Swal.close();
+                    this.auth.enviarMensaje(true);
                     this.router.navigateByUrl('/Principal');
                 },
                 (err) => {
@@ -56,7 +57,7 @@ export class LoginComponent implements OnInit {
     }
 
     cargarAdmin() {
-        this.usuario.email = 'admin@admin.com';
-        this.usuario.password = '11111111'; 
+        this.usuario.email = 'invitado@invitado.com';
+        this.usuario.password = '22222222'; 
     }
 }

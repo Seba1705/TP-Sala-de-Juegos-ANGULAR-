@@ -89,12 +89,6 @@ import { TituloComponent } from './components/titulo/titulo.component';
         MatSnackBarModule,
         RouterModule,
         AppRoutingModule
-        // AgmCoreModule.forRoot({
-        //   apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-        // })
-        // NgbModule.forRoot(MiRuteo),
-        // importo el ruteo
-        // RouterModule.forRoot(MiRuteo)
     ],
     providers: [
         JuegoServiceService, 
