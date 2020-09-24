@@ -13,7 +13,9 @@ export class CabeceraComponent implements OnInit {
     isLogged: boolean;
     user: UsuarioModel;
 
-    constructor(public authSrv: AuthService, private router: Router) { }
+    constructor(public authSrv: AuthService, private router: Router) { 
+        
+    }
 
     ngOnInit(): void {
         this.isLogged = this.authSrv.estaAutenticado();

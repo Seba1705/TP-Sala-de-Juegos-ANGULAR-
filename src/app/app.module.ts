@@ -12,7 +12,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ListadoDeResultadosComponent } from './components/listado-de-resultados/listado-de-resultados.component';
 import { ErrorComponent } from './components/error/error.component';
 import { AgilidadAritmeticaComponent } from './components/agilidad-aritmetica/agilidad-aritmetica.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { AdivinaMasListadoComponent } from './components/adivina-mas-listado/adivina-mas-listado.component';
 import { AgilidadMasListadoComponent } from './components/agilidad-mas-listado/agilidad-mas-listado.component';
 import { ListadoComponent } from './components/listado/listado.component';
@@ -59,7 +58,6 @@ import { TituloComponent } from './components/titulo/titulo.component';
         PrincipalComponent,
         LoginComponent,
         AgilidadAritmeticaComponent,
-        MenuComponent,
         AdivinaMasListadoComponent,
         AgilidadMasListadoComponent,
         ListadoComponent,

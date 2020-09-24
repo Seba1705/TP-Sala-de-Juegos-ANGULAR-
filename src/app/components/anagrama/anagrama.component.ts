@@ -11,7 +11,7 @@ export class AnagramaComponent implements OnInit {
     score;
     answer;
     letters = [];
-    seconds = 30;
+    seconds = 60;
     letterAnimation = 0;
     timerPromise;
     correctWord = '';
@@ -31,7 +31,7 @@ export class AnagramaComponent implements OnInit {
     initGame() {
         if (this.score > 0) {
         }
-        this.seconds = 30;
+        this.seconds = 60;
         this.score = 0;
         this.answer = '';
         this.displayWord();
