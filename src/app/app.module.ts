@@ -10,7 +10,6 @@ import { AppRoutingModule } from "./app-routing.module";
 
 // COMPONENTES
 import { ListadoDeResultadosComponent } from './components/listado-de-resultados/listado-de-resultados.component';
-import { ErrorComponent } from './components/error/error.component';
 import { AgilidadAritmeticaComponent } from './components/agilidad-aritmetica/agilidad-aritmetica.component';
 import { AdivinaMasListadoComponent } from './components/adivina-mas-listado/adivina-mas-listado.component';
 import { AgilidadMasListadoComponent } from './components/agilidad-mas-listado/agilidad-mas-listado.component';
@@ -22,8 +21,6 @@ import { MenuCardComponent } from './components/menu-card/menu-card.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { AnagramaComponent } from './components/anagrama/anagrama.component';
 import { ListadoDePaisesComponent } from './components/listado-de-paises/listado-de-paises.component';
-import { MapaDeGoogleComponent } from './components/mapa-de-google/mapa-de-google.component'
-import { InputJugadoresComponent } from './components/input-jugadores/input-jugadores.component';
 import { PptComponent } from './components/ppt/ppt.component';
 import { AhorcadoComponent } from './components/ahorcado/ahorcado.component';
 import { TatetiComponent } from './components/tateti/tateti.component';
@@ -47,6 +44,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TituloComponent } from './components/titulo/titulo.component';
+import { MemotestComponent } from './components/memotest/memotest.component';
 
 
 @NgModule({
@@ -54,7 +52,6 @@ import { TituloComponent } from './components/titulo/titulo.component';
         AppComponent,
         AdivinaElNumeroComponent,
         ListadoDeResultadosComponent,
-        ErrorComponent,
         PrincipalComponent,
         LoginComponent,
         AgilidadAritmeticaComponent,
@@ -69,14 +66,13 @@ import { TituloComponent } from './components/titulo/titulo.component';
         QuienSoyComponent,
         AnagramaComponent,
         ListadoDePaisesComponent,
-        MapaDeGoogleComponent,
         JugadoresListadoComponent,
-        InputJugadoresComponent,
         SexoPipe,
         PptComponent,
         AhorcadoComponent,
         TatetiComponent,
-        TituloComponent
+        TituloComponent,
+        MemotestComponent
     ],
     imports: [
         BrowserModule,

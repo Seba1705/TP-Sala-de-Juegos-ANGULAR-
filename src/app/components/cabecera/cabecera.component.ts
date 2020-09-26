@@ -56,6 +56,9 @@ export class CabeceraComponent implements OnInit {
             case 'Tateti':
                 this.router.navigate(['/Juegos/Tateti']);
                 break;
+            case 'Memotest':
+                this.router.navigate(['/Juegos/Memotest']);
+                break;
         }
     }
 
