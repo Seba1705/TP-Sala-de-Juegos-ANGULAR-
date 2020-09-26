@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from "./app-routing.module";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 
 // COMPONENTES
 import { ListadoDeResultadosComponent } from './components/listado-de-resultados/listado-de-resultados.component';
@@ -46,6 +48,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TituloComponent } from './components/titulo/titulo.component';
 import { MemotestComponent } from './components/memotest/memotest.component';
 
+import { environment } from './../environments/environment';
+import { NewAuthService } from './services/new-auth.service';
 
 @NgModule({
     declarations: [
@@ -82,7 +86,9 @@ import { MemotestComponent } from './components/memotest/memotest.component';
         ReactiveFormsModule,
         MatSnackBarModule,
         RouterModule,
-        AppRoutingModule
+        AppRoutingModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule
     ],
     providers: [
         JuegoServiceService, 
@@ -90,7 +96,7 @@ import { MemotestComponent } from './components/memotest/memotest.component';
         PaisesService, 
         ArchivosJugadoresService, 
         JugadoresService,
-        AuthService,
+        NewAuthService,
         AuthGuard
     ],
     bootstrap: [AppComponent]

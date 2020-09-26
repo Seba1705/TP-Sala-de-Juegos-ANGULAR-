@@ -1,33 +1,26 @@
+import { Observable } from 'rxjs/Observable';
+import { NewAuthService } from './../../services/new-auth.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
-import { UsuarioModel } from 'src/app/models/app.models';
-
+import { Component } from '@angular/core';
+import { User } from 'src/app/models/user.interface';
 
 @Component({
     selector: 'app-cabecera',
     templateUrl: './cabecera.component.html',
     styleUrls: ['./cabecera.component.css']
 })
-export class CabeceraComponent implements OnInit {
-    isLogged: boolean;
-    user: UsuarioModel;
+export class CabeceraComponent {
 
-    constructor(public authSrv: AuthService, private router: Router) { 
+    public isLogged: boolean = false;
+    public user$: Observable<User> = this.authSrv.afAuth.user;
+
+    constructor(public authSrv: NewAuthService, private router: Router) { 
         
     }
 
-    ngOnInit(): void {
-        this.isLogged = this.authSrv.estaAutenticado();
-        this.user = this.authSrv.user;
-        this.authSrv.mensajeObservable.subscribe(resp => this.isLogged = resp);
-        this.authSrv.usuarioObservable.subscribe(resp => this.user = resp);
-    }
-
-    salir() {
-        this.authSrv.logout();
-        this.authSrv.enviarMensaje(false);
-        this.router.navigateByUrl('/Login');
+    async salir() {
+        await this.authSrv.logout();
+        this.router.navigateByUrl('Login');
     }
 
     Juego(tipo: string) {

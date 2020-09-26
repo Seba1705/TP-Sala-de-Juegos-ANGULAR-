@@ -1,8 +1,7 @@
+import { NewAuthService } from './../../services/new-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioModel } from '../../models/app.models';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,42 +12,27 @@ import { Router } from '@angular/router';
 export class RegistroComponent implements OnInit {
       usuario: UsuarioModel = new UsuarioModel();
       recordarme = true;
-    
-      constructor(private auth: AuthService, private router: Router) {}
-    
+
+      constructor(private authSrv: NewAuthService, private router: Router) { }
+
       ngOnInit() {
             if (localStorage.getItem('email')) {
                   this.usuario.email = localStorage.getItem('email');
                   this.recordarme = true;
             }   
       }
-    
-      onRegister(formulario: NgForm) {
+      async onRegister(formulario: NgForm) {
             if (formulario.invalid) return;
-              
-            Swal.fire({
-                  text: 'Espere por favor',
-                  allowOutsideClick: false,
-                  icon: 'info'
-            });
 
-            Swal.showLoading();
+            const { email, password } = formulario.value;
 
-            this.auth.nuevoUsuario(this.usuario).subscribe(
-                  (resp) => {
-                        Swal.close();
-                        if (this.recordarme)
-                              localStorage.setItem('email', this.usuario.email);
-                        this.router.navigateByUrl('/Login');
-                  },
-                  (err) => {
-                        Swal.fire({
-                              text: err.error.error.message,
-                              icon: 'error',
-                              title: 'Error al registrar',
-                              confirmButtonColor: '#311B92',
-                        });
-                  }
-            );
+            try {
+                  const user = await this.authSrv.register(email, password);
+                  if (user)
+                        this.router.navigateByUrl('Login')
+            }
+            catch (err) {
+                  console.log(err)
+            }
       }
 }

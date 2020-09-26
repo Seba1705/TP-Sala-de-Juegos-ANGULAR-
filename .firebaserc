@@ -6,6 +6,13 @@
           "sala-de-juegos-58a41"
         ]
       }
+    },
+    "saladejuegos-10970": {
+      "hosting": {
+        "app": [
+          "saladejuegos-10970"
+        ]
+      }
     }
   }
 }
