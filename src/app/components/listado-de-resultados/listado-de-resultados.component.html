@@ -1,30 +1,165 @@
-<!--div *ngFor="let juego of listado">
+<app-titulo titulo="Resultados de los juegos"></app-titulo>
 
-<p> {{juego.nombre}} </p>
-<p> {{juego.jugador}} </p>
+<div class="container">
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Adivina el Número</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Fecha la última partida </th>
+                    <th>Ganadas</th>
+                    <th>Perdidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listadoNs">
+                    <td>{{resultado.jugador}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.ganadas}}</td>
+                    <td>{{resultado.perdidas}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-</div-->
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th> <h2>Piedra, papel o tijera</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Fecha de la última partida</th>
+                    <th>Ganadas</th>
+                    <th>Perdidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listadoPpt">
+                    <td>{{resultado.jugador}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.ganadas}}</td>
+                    <td>{{resultado.perdidas}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th class="dark" scope="col">Juego</th>
-                        <th class="dark" scope="col">Jugador</th>
-                        <th class="dark" scope="col">Resultado</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let juego of listado">
-                        <td> {{ juego.nombre }} </td>
-                        <td> {{ juego.jugador }} </td>
-                        <td *ngIf="juego.gano"> Ganó </td>
-                        <td *ngIf="!juego.gano"> Perdio</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Tatetí</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Fecha de la última partida</th>
+                    <th>Ganadas</th>
+                    <th>Perdidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listadoTateti">
+                    <td>{{resultado.jugador}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.ganadas}}</td>
+                    <td>{{resultado.perdidas}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Agilidad Aritmética</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Fecha de la última partida</th>
+                    <th>Ganadas</th>
+                    <th>Perdidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listadoOp">
+                    <td>{{resultado.jugador}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.ganadas}}</td>
+                    <td>{{resultado.perdidas}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Anagrama</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Fecha de la última partida</th>
+                    <th>Partidas</th>
+                    <th>Cantidad de palabras adivinadas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listado">
+                    <td>{{resultado.jugador}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.partidas}}</td>
+                    <td>{{resultado.palabrasAdivinadas}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Ahorcado</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Jugador</th>
+                    <th>Fecha de la última partida</th>
+                    <th>Ganadas</th>
+                    <th>Perdidas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listadoAhorcado">
+                    <td>{{resultado.jugador}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.ganadas}}</td>
+                    <td>{{resultado.perdidas}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

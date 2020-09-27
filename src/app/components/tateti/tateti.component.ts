@@ -110,11 +110,9 @@ export class TatetiComponent implements OnInit {
                 for (let index of pattern) {
                     this.board[index].winner = true;
                 }
-
                 return true;
             }
         }
-
         return false;
     }
 
@@ -141,20 +139,20 @@ export class TatetiComponent implements OnInit {
     addScore(winner) {
         if (winner === this.PLAYER_COMPUTER) {
             this.scoreComputer++;
-            this.CargarPuntaje(this.usuarioLogueado, 0);
+            this.CargarPuntaje(0);
         }
         if (winner === this.PLAYER_HUMAN) {
             this.scoreHuman++;
-            this.CargarPuntaje(this.usuarioLogueado, 1);
+            this.CargarPuntaje(1);
         }
     }
 
-    CargarPuntaje(usuario, resultado) {
-        // if (resultado) {
-        //     this.auth.SetPuntajeGano("tateti", usuario);
-        // } else {
-        //     this.auth.SetPuntajePerdio("tateti", usuario);
-        // }
+    CargarPuntaje(resultado: number) {
+        if (resultado)
+            this.auth.SetPuntajeGano("tateti");
+        else 
+            this.auth.SetPuntajePerdio("tateti");
+        
     }
 
 

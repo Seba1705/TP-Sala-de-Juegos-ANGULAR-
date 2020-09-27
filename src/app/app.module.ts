@@ -8,7 +8,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from "./app-routing.module";
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 // COMPONENTES
 import { ListadoDeResultadosComponent } from './components/listado-de-resultados/listado-de-resultados.component';
@@ -32,24 +33,22 @@ import { AppComponent } from "./app.component";
 import { RegistroComponent } from "./pages/registro/registro.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { AdivinaElNumeroComponent } from './components/adivina-el-numero/adivina-el-numero.component';
+import { TituloComponent } from './components/titulo/titulo.component';
+import { MemotestComponent } from './components/memotest/memotest.component';
 
 // SERVICIOS
 import { JuegoServiceService } from './servicios/juego-service.service';
 import { MiHttpService } from './servicios/mi-http/mi-http.service';
 import { PaisesService } from './servicios/paises.service';
 import { JugadoresService } from './servicios/jugadores.service';
-import { AuthService } from './services/auth.service';
 import { ArchivosJugadoresService } from './servicios/archivos-jugadores.service';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './services/auth.service';
 
 // PIPES
 import { SexoPipe } from './pipes/sexo.pipe';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TituloComponent } from './components/titulo/titulo.component';
-import { MemotestComponent } from './components/memotest/memotest.component';
 
+import { AuthGuard } from './guards/auth.guard';
 import { environment } from './../environments/environment';
-import { NewAuthService } from './services/new-auth.service';
 
 @NgModule({
     declarations: [
@@ -96,7 +95,7 @@ import { NewAuthService } from './services/new-auth.service';
         PaisesService, 
         ArchivosJugadoresService, 
         JugadoresService,
-        NewAuthService,
+        AuthService,
         AuthGuard
     ],
     bootstrap: [AppComponent]

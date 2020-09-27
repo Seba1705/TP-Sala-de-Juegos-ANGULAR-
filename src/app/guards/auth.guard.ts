@@ -1,4 +1,4 @@
-import { NewAuthService } from './../services/new-auth.service';
+import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
     
-    constructor(private authSrv: NewAuthService, private router: Router){
+    constructor(private authSrv: AuthService, private router: Router){
 
     }
 

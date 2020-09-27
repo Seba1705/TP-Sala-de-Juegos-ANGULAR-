@@ -1,3 +1,9 @@
 .thead-dark{
     background-color: #311B92 !important;
 }
+
+.juego{
+    /* background-color: white; */
+    background-color: #311B92 !important;
+    color: white;
+}

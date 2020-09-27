@@ -10,14 +10,11 @@ export class JuegoAgilidad extends Juego {
     solucion:number;
     
     constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Juego Agilidad",gano,jugador);
+        super("Juego Agilidad", gano, jugador);
         this.cargarSolucion();
-        
     }
-    verificar(): boolean{
-        console.info("Seleccion usuario:", this.eleccionUsuario);
-        console.info("Solucion:", this.solucion);
-        
+
+    verificar(): boolean{        
         if ( this.eleccionUsuario == this.solucion){
             this.gano = true;
             return true;
@@ -29,10 +26,10 @@ export class JuegoAgilidad extends Juego {
     }
     
     cargarSolucion() : void {
-        
         this.operando = this.arrayOperandos[ Math.floor( ( Math.random() * this.arrayOperandos.length ) ) ];
         this.primerNumero = Math.floor((Math.random() * 50) + 1);
         this.segundoNumero = Math.floor((Math.random() * 10) + 1);
+
         switch(this.operando){
             case "+":
                 this.solucion = this.primerNumero + this.segundoNumero;
@@ -50,5 +47,6 @@ export class JuegoAgilidad extends Juego {
                 this.solucion = Math.floor(this.primerNumero / this.segundoNumero);
                 break;
         }
+        console.info("Solucion: ", this.solucion);
     }
 }

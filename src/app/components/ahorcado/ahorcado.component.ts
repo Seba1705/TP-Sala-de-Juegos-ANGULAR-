@@ -108,6 +108,7 @@ export class AhorcadoComponent implements OnInit {
             })
         }, 500);
         console.log('Perdiste');
+        this.CargarPuntaje(0);
     }
 
     mostrarMensajeDeGanador() {
@@ -127,6 +128,7 @@ export class AhorcadoComponent implements OnInit {
             }
         })
         console.log('Ganaste');
+        this.CargarPuntaje(1);
     }
     
     inicializarBotones() {
@@ -134,6 +136,14 @@ export class AhorcadoComponent implements OnInit {
         for(let i = 0; i < longitud; i++) {
             this.botones.push({letra: this.letras[i], estado: 'noPresionado'});
         }
+    }
+
+    CargarPuntaje(resultado) {
+        if (resultado)
+            this.auth.SetPuntajeGano("ahorcado");
+        else 
+            this.auth.SetPuntajePerdio("ahorcado");
+        
     }
 }
 

@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { JuegoAgilidad } from '../../clases/juego-agilidad'
 import { Subscription } from "rxjs";
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
     selector: 'app-agilidad-aritmetica',
@@ -26,38 +26,29 @@ export class AgilidadAritmeticaComponent implements OnInit {
 
     constructor(private snackBar: MatSnackBar, public auth: AuthService) {
         this.ocultarVerificar = true;
-        this.Tiempo = 5;
+        this.Tiempo = 10;
         this.nuevoJuego = new JuegoAgilidad();
         this.nuevoJuego.primerNumero = 0;
         this.nuevoJuego.segundoNumero = 0;
-        console.info("Inicio agilidad");
-        // this.usuarioLogueado = JSON.parse(localStorage.getItem('user'));
-
     }
     NuevoJuego() {
         this.ocultarVerificar = false;
         this.repetidor = setInterval(() => {
 
             this.Tiempo--;
-            console.log("Tiempo restante:", this.Tiempo);
             if (this.Tiempo == 0) {
                 clearInterval(this.repetidor);
                 this.verificar();
                 this.ocultarVerificar = true;
-                this.Tiempo = 5;
+                this.Tiempo = 10;
                 this.enviarJuego.emit(this.nuevoJuego);
             }
         }, 900);
         this.nuevoJuego = new JuegoAgilidad();
-        console.info(this.nuevoJuego);
-        console.info("Nuevos Valores");
         this.clase = "";
 
     }
     verificar() {
-        //this.ocultarVerificar=false;
-        //clearInterval(this.repetidor);
-
         if (this.nuevoJuego.verificar()) {
             this.ocultarVerificar = true;
             this.nuevoJuego.gano = true;
@@ -67,27 +58,27 @@ export class AgilidadAritmeticaComponent implements OnInit {
                 duration: 3000
             });
             this.clase = "bounce";
-            // this.CargarPuntaje(this.usuarioLogueado, 1);
-            console.info(this.nuevoJuego);
+            this.CargarPuntaje(1);
         }
         else {
             this.snackBar.open('Respuesta incorrecta', '', {
                 duration: 3000
             });
-            if (this.Tiempo == 0) {
+            if (this.Tiempo == 0)
                 this.clase = "hinge";
-            } else {
+            else 
                 this.clase = "wobble";
-            }
-            // this.CargarPuntaje(this.usuarioLogueado, 0);
+            
+            this.CargarPuntaje(0);
         }
     }
-    // CargarPuntaje(usuario, resultado) {
-    //     if (resultado) {
-    //         this.auth.SetPuntajeGano("agilidad", usuario);
-    //     } else {
-    //         this.auth.SetPuntajePerdio("agilidad", usuario);
-    //     }
 
-    // }
+    CargarPuntaje(resultado: number) {
+        if (resultado) {
+            this.auth.SetPuntajeGano("agilidad");
+        } else {
+            this.auth.SetPuntajePerdio("agilidad");
+        }
+
+    }
 }

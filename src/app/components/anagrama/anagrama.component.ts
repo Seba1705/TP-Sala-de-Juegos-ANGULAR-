@@ -18,10 +18,8 @@ export class AnagramaComponent implements OnInit {
     words = ["JUEGO", "AVION", "PROMOCION", "MONEDA", "COMPUTADORA", "CERVEZA", "ESCALAR",
         "PESCADO", "LAGO", "BOSQUE", "CAMARA", "ZAPATILLA", "SER", "PAIS",
         "VINOTECA", "MONTAÑA", "JUPITER", "EXTRATERRESTRE", "DIFICIL", "ABURRIDO", "AYUDA"];
-    usuarioLogueado: any;
 
     constructor(private snackBar: MatSnackBar, public auth: AuthService) {
-        this.usuarioLogueado = JSON.parse(localStorage.getItem('user'));
     }
 
     ngOnInit() {
@@ -73,6 +71,7 @@ export class AnagramaComponent implements OnInit {
         this.answer = '';
         const wordIndex = Math.floor(Math.random() * this.words.length);
         this.correctWord = this.words[wordIndex];
+        console.log(this.correctWord);
         this.letters = this.correctWord.split('');
         this.getRandomIndexes();
         this.timerPromise = setTimeout(() => { this.letterAnimation = 1; }, 100);
@@ -99,11 +98,10 @@ export class AnagramaComponent implements OnInit {
     }
 
     CargarPuntaje() {
-        // this.auth.SetPuntajeAnagrama(this.score, "anagrama", this.usuarioLogueado);
+        this.auth.SetPuntajeAnagrama(this.score, "anagrama");
         this.snackBar.open('Resultados cargados', '', {
             duration: 3000
         });
-
     }
 
 }

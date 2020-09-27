@@ -31,16 +31,22 @@
                         </a>
                     </div>
                 </div>
-
                 <div class="container-login100-form-btn m-t-17">
                     <button class="login100-form-btn" type="submit">
                         Ingresar
                     </button>
                 </div>
-                <div class="container-login100-form-btn m-t-17">
-                    <button class="login100-form-btn" type="button" (click)="cargarAdmin()">
-                        Ingresar Como Invitado
-                    </button>
+                <div class="row">
+                    <div class=" col mr-1 container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" type="button" (click)="cargarInvitado()">
+                            Ingresar Como Invitado
+                        </button>
+                    </div>
+                    <div class=" col ml-1 container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" type="button" (click)="cargarAdmin()">
+                            Ingresar Como Admin
+                        </button>
+                    </div>
                 </div>
 
             </form>

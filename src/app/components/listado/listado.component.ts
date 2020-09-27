@@ -12,7 +12,6 @@ export class ListadoComponent implements OnInit {
 
     constructor(servicioJuego: JuegoServiceService) {
         this.miServicioJuego = servicioJuego;
-
     }
 
     ngOnInit() {

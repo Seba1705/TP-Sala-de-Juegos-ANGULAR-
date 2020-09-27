@@ -1,4 +1,4 @@
-import { NewAuthService } from './../../services/new-auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UsuarioModel } from 'src/app/models/app.models';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     usuario: UsuarioModel = new UsuarioModel();
     recordarme = false;
 
-    constructor(private authSrv: NewAuthService, private router: Router) { }
+    constructor(private authSrv: AuthService, private router: Router) { }
 
     ngOnInit() {
         if (localStorage.getItem('email')) {
@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
             
             if (user) {
                 Swal.close();
-                this.router.navigateByUrl('Principal')
+                this.router.navigateByUrl('Principal');
+                console.log(user.uid);
             }
         }
         catch (err) {
@@ -42,8 +43,13 @@ export class LoginComponent implements OnInit {
         }
     }
 
-    cargarAdmin() {
+    cargarInvitado() {
         this.usuario.email = 'invitado@invitado.com';
         this.usuario.password = '22222222';
+    }
+
+    cargarAdmin() {
+        this.usuario.email = 'admin@admin.com';
+        this.usuario.password = '11111111';
     }
 }

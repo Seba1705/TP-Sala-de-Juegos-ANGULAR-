@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { NewAuthService } from './../../services/new-auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { User } from 'src/app/models/user.interface';
@@ -14,7 +14,7 @@ export class CabeceraComponent {
     public isLogged: boolean = false;
     public user$: Observable<User> = this.authSrv.afAuth.user;
 
-    constructor(public authSrv: NewAuthService, private router: Router) { 
+    constructor(public authSrv: AuthService, private router: Router) { 
         
     }
 

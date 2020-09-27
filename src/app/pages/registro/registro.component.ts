@@ -1,4 +1,4 @@
-import { NewAuthService } from './../../services/new-auth.service';
+import { AuthService } from '../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioModel } from '../../models/app.models';
 import { NgForm } from '@angular/forms';
@@ -13,7 +13,7 @@ export class RegistroComponent implements OnInit {
       usuario: UsuarioModel = new UsuarioModel();
       recordarme = true;
 
-      constructor(private authSrv: NewAuthService, private router: Router) { }
+      constructor(private authSrv: AuthService, private router: Router) { }
 
       ngOnInit() {
             if (localStorage.getItem('email')) {
