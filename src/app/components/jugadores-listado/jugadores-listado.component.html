@@ -1,53 +1,30 @@
-<!-- <ul class="nav nav-pills nav-justified">
-    <li class="active"><a routerLink="/Principal">Ir a inicio</a></li>
-    <li><a (click)="TraerTodos()">Todos los jugadores</a></li>
-    <li><a (click)="TraerGanadores()">Los ganadores</a></li>
-    <li><a (click)="TraerPerdedores()">Los perdedores</a></li>
-</ul>
- -->
+<app-titulo titulo="Listado de los jugadores registrados"></app-titulo>
 
-<!-- 
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th>usuario</th>
-      <th>cuit</th>
-      <th>sexo</th>
-      <th>gano</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let jugador of listado">
-      <td>{{jugador.usuario}} </td>
-      <td>{{jugador.cuit}} </td>
-      <td>{{jugador.sexo | sexo| uppercase}} </td>
-      <td>{{jugador.gano}} </td>
-
-    </tr>
-  </tbody>
-</table> -->
-<div class="container mt-5">
+<div class="container">
     <div class="row">
-        <div class="col">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Cuit</th>
-                        <th scope="col">Sexo</th>
-                        <th scope="col">Ganó</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let jugador of listado">
-                        <td> {{ jugador.usuario }} </td>
-                        <td> {{ jugador.cuit} } </td>
-                        <td> {{ jugador.sexo | sexo | uppercase }} </td>
-                        <td> {{ jugador.gano }} </td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </div>
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Jugadores</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th>Nombre de usuario</th>
+                    <th>UID</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jugador of listado; index as i">
+                    <th scope="row">{{i}}</th>
+                    <td>{{jugador.name}} </td>
+                    <td>{{jugador.uid}} </td>
+                    <td>{{jugador.email}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

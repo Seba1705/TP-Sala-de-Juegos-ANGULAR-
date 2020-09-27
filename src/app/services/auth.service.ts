@@ -88,7 +88,8 @@ export class AuthService extends RoleValidator {
         const data: User = {
             uid: user.uid,
             email: user.email,
-            role: 'INVITADO'
+            role: 'INVITADO',
+            name: user.email.split('@')[0]
         }
 
         return userRef.set(data, { merge: true });
