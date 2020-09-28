@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JugadoresService } from '../../servicios/jugadores.service';
 import { DbServiceService } from '../../services/db.service';
 
 @Component({

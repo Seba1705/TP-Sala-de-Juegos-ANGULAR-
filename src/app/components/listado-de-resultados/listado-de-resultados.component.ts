@@ -16,6 +16,7 @@ export class ListadoDeResultadosComponent implements OnInit {
     listadoNs: Array<any>;
     listadoTateti: Array<any>;
     listadoAhorcado: Array<any>;
+    listadoMemo: Array<any>;
 
     constructor(private dbService: DbServiceService) {
     }
@@ -56,6 +57,12 @@ export class ListadoDeResultadosComponent implements OnInit {
             .then(result => {
                 this.isLoading = false;
                 this.listadoAhorcado = result;
+            })
+        
+        this.dbService.GetResults("memotest")
+            .then(result => {
+                this.isLoading = false;
+                this.listadoMemo = result;
             })
 
     }

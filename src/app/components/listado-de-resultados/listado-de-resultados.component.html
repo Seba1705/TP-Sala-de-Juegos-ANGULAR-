@@ -162,4 +162,31 @@
             </tbody>
         </table>
     </div>
+
+    <div class="row mb-3">
+        <table class="table table-dark">
+            <thead>
+                <tr class="text-left juego">
+                    <th><h2>Memotest</h2></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th class="w-25">Jugador</th>
+                    <th class="w-25">Fecha de la última partida</th>
+                    <th class="w-25">Partidas Jugadas</th>
+                    <th class="w-25">Puntos acumulados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listadoMemo">
+                    <td>{{resultado.jugador}} </td>
+                    <td>{{resultado.createdAt}}</td>
+                    <td>{{resultado.partidas}}</td>
+                    <td>{{resultado.puntosAcumulados}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

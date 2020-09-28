@@ -18,12 +18,10 @@ import { AdivinaMasListadoComponent } from './components/adivina-mas-listado/adi
 import { AgilidadMasListadoComponent } from './components/agilidad-mas-listado/agilidad-mas-listado.component';
 import { ListadoComponent } from './components/listado/listado.component';
 import { JugadoresListadoComponent } from './components/jugadores-listado/jugadores-listado.component';
-import { ListadosComponent } from './components/listados/listados.component';
 import { JuegosComponent } from './components/juegos/juegos.component';
 import { MenuCardComponent } from './components/menu-card/menu-card.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { AnagramaComponent } from './components/anagrama/anagrama.component';
-import { ListadoDePaisesComponent } from './components/listado-de-paises/listado-de-paises.component';
 import { PptComponent } from './components/ppt/ppt.component';
 import { AhorcadoComponent } from './components/ahorcado/ahorcado.component';
 import { TatetiComponent } from './components/tateti/tateti.component';
@@ -37,17 +35,15 @@ import { TituloComponent } from './components/titulo/titulo.component';
 import { MemotestComponent } from './components/memotest/memotest.component';
 
 // SERVICIOS
-import { JuegoServiceService } from './servicios/juego-service.service';
-import { MiHttpService } from './servicios/mi-http/mi-http.service';
-import { PaisesService } from './servicios/paises.service';
-import { JugadoresService } from './servicios/jugadores.service';
-import { ArchivosJugadoresService } from './servicios/archivos-jugadores.service';
 import { AuthService } from './services/auth.service';
 
 // PIPES
 import { SexoPipe } from './pipes/sexo.pipe';
 
+// GUARDS
 import { AuthGuard } from './guards/auth.guard';
+
+// VARIABLES
 import { environment } from './../environments/environment';
 
 @NgModule({
@@ -61,14 +57,12 @@ import { environment } from './../environments/environment';
         AdivinaMasListadoComponent,
         AgilidadMasListadoComponent,
         ListadoComponent,
-        ListadosComponent,
         JuegosComponent,
         RegistroComponent,
         MenuCardComponent,
         CabeceraComponent,
         QuienSoyComponent,
         AnagramaComponent,
-        ListadoDePaisesComponent,
         JugadoresListadoComponent,
         SexoPipe,
         PptComponent,
@@ -90,11 +84,6 @@ import { environment } from './../environments/environment';
         AngularFireAuthModule
     ],
     providers: [
-        JuegoServiceService, 
-        MiHttpService, 
-        PaisesService, 
-        ArchivosJugadoresService, 
-        JugadoresService,
         AuthService,
         AuthGuard
     ],

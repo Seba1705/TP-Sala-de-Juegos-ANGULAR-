@@ -14,7 +14,6 @@ import { ListadoComponent } from './components/listado/listado.component'
 import { JuegosComponent } from './components/juegos/juegos.component';
 import { MenuCardComponent } from './components/menu-card/menu-card.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component'
-import { ListadoDePaisesComponent } from './components/listado-de-paises/listado-de-paises.component'
 import { JugadoresListadoComponent } from './components/jugadores-listado/jugadores-listado.component';
 import { AhorcadoComponent } from './components/ahorcado/ahorcado.component';
 import { AnagramaComponent } from './components/anagrama/anagrama.component';
@@ -33,7 +32,6 @@ const MiRuteo = [
     { path: 'Registro', component: RegistroComponent },
     { path: 'Principal', component: PrincipalComponent, canActivate: [AuthGuard] },
     { path: 'Listado', component: ListadoComponent, canActivate: [AuthGuard] },
-    { path: 'Paises', component: ListadoDePaisesComponent, canActivate: [AuthGuard] },
     {   
         path: 'Juegos',
         component: JuegosComponent,

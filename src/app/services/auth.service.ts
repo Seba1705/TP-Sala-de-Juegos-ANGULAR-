@@ -141,6 +141,22 @@ export class AuthService extends RoleValidator {
         })
     }
 
+    async SetPuntajeMemotest(cantIntentos:number) {
+        const user = await this.getCurrentUser();
+        const date = new Date();
+        const userRef: AngularFirestoreDocument<any> = this.afs.doc(`memotest/${user.uid}`);
+        const userData: any = {
+            uid: user.uid,
+            createdAt: date.toLocaleDateString(),
+            jugador: user.email.split('@')[0],
+            partidas: firebase.firestore.FieldValue.increment(1),
+            puntosAcumulados: firebase.firestore.FieldValue.increment(cantIntentos),
+        }
+        return userRef.set(userData, {
+            merge: true
+        })
+    }
+
     getCurrentUser() {
         return this.afAuth.authState.pipe(first()).toPromise();
     }
