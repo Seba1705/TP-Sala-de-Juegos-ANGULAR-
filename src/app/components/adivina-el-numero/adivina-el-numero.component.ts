@@ -17,7 +17,6 @@ export class AdivinaElNumeroComponent implements OnInit {
 
     constructor(public auth: AuthService) {
         this.nuevoJuego = new JuegoAdivina();
-        console.info("numero Secreto:", this.nuevoJuego.numeroSecreto);
         this.ocultarVerificar = false;
     }
     generarnumero() {
@@ -67,7 +66,6 @@ export class AdivinaElNumeroComponent implements OnInit {
                 this.enviarJuego.emit(this.nuevoJuego);
                 this.nuevoJuego.numeroSecreto = 0;
             }
-            console.info("numero Secreto:", this.nuevoJuego.gano);
         }
     }
 

@@ -11,7 +11,7 @@ import Swal  from 'sweetalert2';
 export class AhorcadoComponent implements OnInit {
 
     letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    palabras = ["JUEGO", "AVION", "PROMOCION", "MONEDA", "COMPUTADORA", "CERVEZA", "ESCALAR", "PESCADO", "LAGO", "BOSQUE", "CAMARA", "ZAPATILLA", "SER", "PAIS", "VINOTECA", "MONTAÑA", "JUPITER", "EXTRATERRESTRE", "DIFICIL", "ABURRIDO", "AYUDA"];
+    palabras = ["JUEGO", "AVION", "PROMOCION", "MONEDA", "COMPUTADORA", "CERVEZA", "ESCALAR", "PESCADO", "LAGO", "BOSQUE", "CAMARA", "ZAPATILLA", "SER", "PAIS", "VINOTECA", "MONTAÑA", "JUPITER", "EXTRATERRESTRE", "DIFICIL", "ABURRIDO", "AYUDA", "CELULAR", "FACULTAD", "INGENIERO"];
     palabraAAdivinar: string;
     palabraAdivinadaPorAhora: string;
     fallos: Array<string>;
@@ -45,7 +45,7 @@ export class AhorcadoComponent implements OnInit {
             this.palabraAdivinadaPorAhora += '_';
 
         }
-        console.log(this.palabraAAdivinar);
+        console.info('Respuesta:', this.palabraAAdivinar);
     }
 
     letraPresionada(boton: {letra: string, estado: string}) {   
@@ -107,7 +107,6 @@ export class AhorcadoComponent implements OnInit {
                 }
             })
         }, 500);
-        console.log('Perdiste');
         this.CargarPuntaje(0);
     }
 
@@ -127,7 +126,6 @@ export class AhorcadoComponent implements OnInit {
                 this.router.navigateByUrl('/Principal');
             }
         })
-        console.log('Ganaste');
         this.CargarPuntaje(1);
     }
     

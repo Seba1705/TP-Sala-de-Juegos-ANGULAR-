@@ -35,11 +35,10 @@ export class LoginComponent implements OnInit {
             if (user) {
                 Swal.close();
                 this.router.navigateByUrl('Principal');
-                console.log(user.uid);
             }
         }
         catch (err) {
-            console.log( 'Login', err);
+            console.error(err);
         }
     }
 

@@ -32,7 +32,7 @@ export class RegistroComponent implements OnInit {
                         this.router.navigateByUrl('Login')
             }
             catch (err) {
-                  console.log(err)
+                  console.error(err)
             }
       }
 }

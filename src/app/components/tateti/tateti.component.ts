@@ -70,7 +70,6 @@ export class TatetiComponent implements OnInit {
     }
 
     getRandomAvailableSquare(): any {
-
         let availableSquares = this.board.filter(s => s.value === '');
         var squareIndex = this.getRndInteger(0, availableSquares.length - 1);
 
@@ -152,9 +151,5 @@ export class TatetiComponent implements OnInit {
             this.auth.SetPuntajeGano("tateti");
         else 
             this.auth.SetPuntajePerdio("tateti");
-        
     }
-
-
-
 }

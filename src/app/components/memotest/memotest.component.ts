@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import Swal  from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-memotest',
@@ -28,7 +27,7 @@ export class MemotestComponent implements OnInit {
     public triesCounter: number;
     public successMessage: string;
 
-    constructor(private router: Router, private auth: AuthService, private snackBar: MatSnackBar) { }
+    constructor(private router: Router, private auth: AuthService) { }
 
     ngOnInit() {
         this.StartGame();
@@ -86,7 +85,7 @@ export class MemotestComponent implements OnInit {
             }
         }
         if (this.requiredPositives === this.positiveCounter) {
-            this.successMessage = `Terminaste el juego en ${this.triesCounter} intentos, sumaste: ${this.CargarPuntaje(this.triesCounter)} punto/s. ¿Jugás de Nuevo?`; 
+            this.successMessage = `Terminaste el juego en ${this.triesCounter} movimientos, sumaste: ${this.CargarPuntaje(this.triesCounter)} punto/s. ¿Jugás de Nuevo?`; 
             Swal.fire({
                 icon: 'info',
                 title: 'Lo lograste!!!',
@@ -125,17 +124,14 @@ export class MemotestComponent implements OnInit {
     CargarPuntaje(puntaje: number) {
         let resultado = 0;
         
-        if(puntaje < 10)
+        if(puntaje < 26)
             resultado = 5;
-        else if(puntaje > 10 && puntaje < 30)
+        else if(puntaje > 25 && puntaje < 41)
             resultado = 3;
         else    
             resultado = 1;
 
         this.auth.SetPuntajeMemotest(resultado);
-        this.snackBar.open('Resultados cargados', '', {
-            duration: 3000
-        });
 
         return resultado;
     }

@@ -8,10 +8,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class PptComponent implements OnInit {
 
-    usuarioLogueado: any;
-
     constructor(public auth: AuthService) {
-        this.usuarioLogueado = JSON.parse(localStorage.getItem('user'));
     }
 
     ngOnInit() {

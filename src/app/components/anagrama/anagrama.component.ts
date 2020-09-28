@@ -15,9 +15,7 @@ export class AnagramaComponent implements OnInit {
     letterAnimation = 0;
     timerPromise;
     correctWord = '';
-    words = ["JUEGO", "AVION", "PROMOCION", "MONEDA", "COMPUTADORA", "CERVEZA", "ESCALAR",
-        "PESCADO", "LAGO", "BOSQUE", "CAMARA", "ZAPATILLA", "SER", "PAIS",
-        "VINOTECA", "MONTAÑA", "JUPITER", "EXTRATERRESTRE", "DIFICIL", "ABURRIDO", "AYUDA"];
+    words = ["JUEGO", "AVION", "PROMOCION", "MONEDA", "COMPUTADORA", "CERVEZA", "ESCALAR", "PESCADO", "LAGO", "BOSQUE", "CAMARA", "ZAPATILLA", "SER", "PAIS", "VINOTECA", "MONTAÑA", "JUPITER", "EXTRATERRESTRE", "DIFICIL", "ABURRIDO", "AYUDA", "CELULAR", "FACULTAD", "INGENIERO"];
 
     constructor(private snackBar: MatSnackBar, public auth: AuthService) {
     }
@@ -71,7 +69,7 @@ export class AnagramaComponent implements OnInit {
         this.answer = '';
         const wordIndex = Math.floor(Math.random() * this.words.length);
         this.correctWord = this.words[wordIndex];
-        console.log(this.correctWord);
+        console.info('Respuesta:', this.correctWord);
         this.letters = this.correctWord.split('');
         this.getRandomIndexes();
         this.timerPromise = setTimeout(() => { this.letterAnimation = 1; }, 100);

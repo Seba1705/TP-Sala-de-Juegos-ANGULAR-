@@ -22,7 +22,6 @@ export class JugadoresListadoComponent implements OnInit {
         this.dbService.GetUsers()
             .then(result => {
                 this.isLoading = false;
-                console.log(result);
                 this.listado = result;
             })
     }
@@ -32,7 +31,6 @@ export class JugadoresListadoComponent implements OnInit {
         this.dbService.GetUsers()
             .then(result => {
                 this.isLoading = false;
-                console.log(result);
                 this.listado = result;
             })
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DbServiceService } from '../../services/db.service';
 
 @Component({
@@ -65,9 +65,5 @@ export class ListadoDeResultadosComponent implements OnInit {
                 this.listadoMemo = result;
             })
 
-    }
-
-    ver() {
-        console.info(this.listado);
     }
 }
